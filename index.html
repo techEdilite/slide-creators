@@ -287,13 +287,15 @@
                         </div>
                         <div class="flex flex-col">
                             <span class="text-2xl font-bold text-gray-800 tracking-tight">Slide Creators</span>
-                            <span class="text-xs text-gray-500 -mt-1">Presentations that inspire</span>
+                            <span class="text-xs text-gray-500 -mt-1">Solutions that inspire</span>
                         </div>
                     </div>
                     
                     <!-- Desktop Navigation -->
                     <div class="hidden lg:flex items-center space-x-8">
                         <a href="#" class="nav-link active font-semibold text-indigo-600 transition-colors">Home</a>
+                        <a href="team.html" class="nav-link font-medium text-gray-600 hover:text-indigo-600 transition-colors">About us</a>
+
                         <a href="#service" class="nav-link font-medium text-gray-600 hover:text-indigo-600 transition-colors">Our Services</a>
                         <a href="#projects" class="nav-link font-medium text-gray-600 hover:text-indigo-600 transition-colors">Our Portfolio</a>
                         <a href="#contact" class="px-6 py-2 bg-indigo-600 text-white font-medium rounded-full shadow-md hover:bg-indigo-700 transition-colors">Contact Us</a>
@@ -313,6 +315,8 @@
                 <div class="container mx-auto px-8 md:px-12 lg:px-16">
                     <div class="flex flex-col space-y-4">
                         <a href="#" class="nav-link active font-semibold text-indigo-600 transition-colors">Home</a>
+                        <a href="team.html" class="nav-link font-medium text-gray-600 hover:text-indigo-600 transition-colors">About us</a>
+
                         <a href="#service" class="nav-link font-medium text-gray-600 hover:text-indigo-600 transition-colors">Our Services</a>
                         <a href="#projects" class="nav-link font-medium text-gray-600 hover:text-indigo-600 transition-colors">Our Portfolio</a>
                         <a href="#contact" class="px-6 py-2 bg-indigo-600 text-white font-medium rounded-full shadow-md hover:bg-indigo-700 transition-colors text-center">Contact Us</a>
@@ -351,36 +355,51 @@
             transform: translateX(0);
         }
     </style>
-    
-  <!-- Main Content - Hero Section -->
-<main class="pt-24 bg-gray-50">
-    <div class="relative overflow-hidden">
-        <!-- Animated Background Elements - Updated with lighter colors -->
-        <div class="absolute top-0 left-0 w-full h-full">
+ <!-- Main Content - Enhanced Hero Section with Fixed z-index -->
+<main class="pt-24 bg-gradient-to-b from-white to-gray-50 overflow-hidden">
+    <div class="relative">
+        <!-- Enhanced Animated Background Elements - Lower z-index -->
+        <div class="absolute top-0 left-0 w-full h-full z-0">
             <div class="absolute top-10 left-10 w-64 h-64 bg-indigo-200 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-blob"></div>
             <div class="absolute top-0 right-0 w-72 h-72 bg-pink-200 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-blob animation-delay-2000"></div>
-            <div class="absolute bottom-0 left-1/3 w-80 h-80 bg-purple-200 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-blob animation-delay-4000"></div>
+            <div class="absolute -bottom-20 left-1/3 w-80 h-80 bg-purple-200 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-blob animation-delay-4000"></div>
+            <!-- Additional blobs for more visual interest -->
+            <div class="absolute top-1/2 right-1/4 w-56 h-56 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-3000"></div>
+            <div class="absolute bottom-1/4 left-10 w-48 h-48 bg-purple-300 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-1000"></div>
+        </div>
+        
+        <!-- Floating geometric shapes - Lower z-index -->
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">
+            <div class="absolute top-20 right-20 w-16 h-16 rounded-lg border-2 border-purple-300/50 rotate-45 animate-float-slow"></div>
+            <div class="absolute top-1/3 left-1/5 w-12 h-12 rounded-full border-2 border-indigo-300/50 animate-float"></div>
+            <div class="absolute bottom-1/4 right-1/3 w-20 h-20 rounded-lg border-2 border-pink-300/50 -rotate-12 animate-float-medium"></div>
+            <div class="absolute top-2/3 left-1/4 w-8 h-8 rounded-full border-2 border-blue-300/50 animate-pulse animate-float-slow"></div>
+            <div class="absolute bottom-20 right-1/4 w-10 h-10 rounded-full bg-gradient-to-r from-indigo-300/20 to-purple-300/20 animate-float-medium"></div>
         </div>
 
         <div class="container mx-auto px-8 md:px-12 lg:px-16 py-24 relative z-10">
             <div class="grid grid-cols-1 lg:grid-cols-5 gap-12 items-center">
-                <!-- Text Content (3 columns) -->
-                <div class="lg:col-span-3">
-                    <h1 class="text-5xl md:text-6xl xl:text-7xl font-bold mb-6 leading-tight">
+                <!-- Text Content (3 columns) - Higher z-index -->
+                <div class="lg:col-span-3 relative z-20">
+                    <!-- Subtle decorative line - positioned to not overlap text -->
+                    <div class="absolute left-[-30px] top-0 h-20 w-1 bg-gradient-to-b from-purple-400 to-pink-400 rounded-full transform -translate-y-6 opacity-70"></div>
+                    
+                    <h1 class="text-5xl md:text-6xl xl:text-7xl font-bold mb-6 leading-tight animate-fade-in-up">
                         <span class="inline-block text-gray-900 mb-2">Creativity In</span>
-                        <div class="relative">
-                            <span class="relative inline-block z-10 bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-pink-600">Our Blood Line</span>
-                            <div class="absolute -bottom-2 left-0 h-3 w-full bg-gradient-to-r from-indigo-300 to-pink-300 opacity-50 blur-sm"></div>
+                        <div class="relative overflow-hidden">
+                            <span class="relative inline-block z-10 bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-pink-600 animate-gradient-x">Our Blood Line</span>
+                            <div class="absolute -bottom-2 left-0 h-3 w-full bg-gradient-to-r from-purple-300 to-pink-300 opacity-50 blur-sm"></div>
                         </div>
                     </h1>
                     
-                    <p class="text-gray-600 text-xl max-w-2xl my-8 leading-relaxed">
+                    <p class="text-gray-600 text-xl max-w-2xl my-8 leading-relaxed animate-fade-in-up animation-delay-300">
                         We deliver best problem solving solution for our client and provide finest finishing product in present and upcoming future.
                     </p>
                     
-                    <div class="mt-10 relative">
-                        <a href="#" class="group relative inline-flex items-center overflow-hidden rounded-full bg-gradient-to-r from-indigo-600 to-pink-600 px-8 py-4 text-white focus:outline-none hover:shadow-lg transition-all duration-300">
-                            <span class="absolute left-0 right-0 top-0 h-full w-full scale-x-0 rounded-full bg-white/20 transition-transform duration-500 ease-out group-hover:scale-x-100"></span>
+                    <!-- Get in Touch button - Higher z-index and removed the shadow from behind -->
+                    <div class="mt-10 relative animate-fade-in-up animation-delay-600 z-30">
+                        <a href="#" class="group relative inline-flex items-center overflow-hidden rounded-full bg-gradient-to-r from-purple-600 to-pink-600 px-8 py-4 text-white focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-offset-2 hover:shadow-lg transition-all duration-300">
+                            <span class="absolute -left-3 top-0 h-full w-0 rounded-full bg-white/20 transition-all duration-500 ease-out group-hover:w-[calc(100%+1.5rem)]"></span>
                             <span class="relative flex items-center font-bold">
                                 Get a Quote
                                 <svg class="ml-2 h-6 w-6 transition-transform duration-300 group-hover:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -388,42 +407,74 @@
                                 </svg>
                             </span>
                         </a>
-                        <div class="absolute -bottom-2 left-4 right-4 h-full blur-lg bg-gradient-to-r from-indigo-300 to-pink-300 opacity-30"></div>
+                        <!-- Removed the shadow from behind the button that was causing issues -->
+                    </div>
+                    
+                    <!-- Stats counter - Higher z-index -->
+                    <div class="mt-16 grid grid-cols-3 gap-4 animate-fade-in-up animation-delay-900 relative z-20">
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-gray-900 mb-1 counter" data-target="250">0</div>
+                            <div class="text-sm text-gray-500">Happy Clients</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-gray-900 mb-1 counter" data-target="550">0</div>
+                            <div class="text-sm text-gray-500">Projects Completed</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-gray-900 mb-1 counter" data-target="15">0</div>
+                            <div class="text-sm text-gray-500">Years Experience</div>
+                        </div>
                     </div>
                 </div>
                 
-                <!-- Visual Element (2 columns) -->
-                <div class="lg:col-span-2 relative">
-                    <!-- 3D Rotating Cube - Updated with lighter, more vibrant colors -->
-                    <div class="scene mx-auto w-64 h-64">
-                        <div class="cube">
-                            <div class="cube__face cube__face--front bg-gradient-to-br from-indigo-400 to-indigo-600 flex items-center justify-center p-4">
-                                <i class="fas fa-lightbulb text-6xl text-white"></i>
+                <!-- Visual Element (2 columns) - Proper z-index -->
+                <div class="lg:col-span-2 relative z-10">
+                    <!-- Glowing backdrop for the cube -->
+                    <div class="absolute inset-0 bg-gradient-to-r from-purple-200/30 to-pink-200/30 rounded-full filter blur-3xl"></div>
+                    
+                    <!-- Enhanced 3D Rotating Cube with more polished design -->
+                    <div class="scene mx-auto w-64 h-64 perspective-1000 animate-fade-in">
+                        <div class="cube animate-slow-spin">
+                            <div class="cube__face cube__face--front bg-gradient-to-br from-purple-400 to-purple-600 flex items-center justify-center p-4 backdrop-blur-sm">
+                                <svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                                </svg>
                             </div>
-                            <div class="cube__face cube__face--back bg-gradient-to-br from-pink-400 to-pink-600 flex items-center justify-center p-4">
-                                <i class="fas fa-chart-line text-6xl text-white"></i>
+                            <div class="cube__face cube__face--back bg-gradient-to-br from-pink-400 to-pink-600 flex items-center justify-center p-4 backdrop-blur-sm">
+                                <svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                                </svg>
                             </div>
-                            <div class="cube__face cube__face--right bg-gradient-to-br from-purple-400 to-purple-600 flex items-center justify-center p-4">
-                                <i class="fas fa-paint-brush text-6xl text-white"></i>
+                            <div class="cube__face cube__face--right bg-gradient-to-br from-indigo-400 to-indigo-600 flex items-center justify-center p-4 backdrop-blur-sm">
+                                <svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path>
+                                </svg>
                             </div>
-                            <div class="cube__face cube__face--left bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center p-4">
-                                <i class="fas fa-code text-6xl text-white"></i>
+                            <div class="cube__face cube__face--left bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center p-4 backdrop-blur-sm">
+                                <svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                                </svg>
                             </div>
-                            <div class="cube__face cube__face--top bg-gradient-to-br from-indigo-400 to-pink-400 flex items-center justify-center p-4">
-                                <i class="fas fa-rocket text-6xl text-white"></i>
+                            <div class="cube__face cube__face--top bg-gradient-to-br from-indigo-400 to-pink-400 flex items-center justify-center p-4 backdrop-blur-sm">
+                                <svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"></path>
+                                </svg>
                             </div>
-                            <div class="cube__face cube__face--bottom bg-gradient-to-br from-pink-400 to-indigo-400 flex items-center justify-center p-4">
-                                <i class="fas fa-award text-6xl text-white"></i>
+                            <div class="cube__face cube__face--bottom bg-gradient-to-br from-pink-400 to-indigo-400 flex items-center justify-center p-4 backdrop-blur-sm">
+                                <svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4"></path>
+                                </svg>
                             </div>
                         </div>
                     </div>
                     
-                    <!-- Animated particles - Updated with more vibrant colors -->
-                    <div class="absolute top-0 left-0 w-full h-full">
-                        <div class="particle particle-1 bg-gradient-to-r from-indigo-500 to-pink-500"></div>
-                        <div class="particle particle-2 bg-gradient-to-r from-indigo-500 to-pink-500"></div>
-                        <div class="particle particle-3 bg-gradient-to-r from-indigo-500 to-pink-500"></div>
-                        <div class="particle particle-4 bg-gradient-to-r from-indigo-500 to-pink-500"></div>
+                    <!-- Enhanced particle animation - Lower z-index -->
+                    <div class="absolute top-0 left-0 w-full h-full pointer-events-none">
+                        <div class="particle particle-1 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full"></div>
+                        <div class="particle particle-2 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full"></div>
+                        <div class="particle particle-3 bg-gradient-to-r from-pink-500 to-purple-500 rounded-full"></div>
+                        <div class="particle particle-4 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-full"></div>
+                        <div class="particle particle-5 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full"></div>
                     </div>
                 </div>
             </div>
@@ -432,27 +483,268 @@
 </main>
 
 <style>
-    /* Update cube face styles for light theme */
-    .cube__face {
-        border: 2px solid rgba(255, 255, 255, 0.4);
-        box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+    /* Enhanced animation keyframes */
+    @keyframes blob {
+        0%, 100% { transform: translate(0, 0) scale(1); }
+        25% { transform: translate(20px, -15px) scale(1.05); }
+        50% { transform: translate(0, 15px) scale(0.95); }
+        75% { transform: translate(-20px, -15px) scale(1.05); }
     }
     
-    /* Update particle animations for better visibility */
+    @keyframes float {
+        0%, 100% { transform: translateY(0) rotate(0); }
+        50% { transform: translateY(-15px) rotate(5deg); }
+    }
+    
+    @keyframes float-medium {
+        0%, 100% { transform: translateY(0) rotate(0); }
+        50% { transform: translateY(-20px) rotate(-5deg); }
+    }
+    
+    @keyframes float-slow {
+        0%, 100% { transform: translateY(0) rotate(0); }
+        50% { transform: translateY(-25px) rotate(8deg); }
+    }
+    
+    @keyframes gradient-x {
+        0%, 100% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+    }
+    
+    @keyframes fade-in-up {
+        0% { opacity: 0; transform: translateY(20px); }
+        100% { opacity: 1; transform: translateY(0); }
+    }
+    
+    @keyframes fade-in {
+        0% { opacity: 0; }
+        100% { opacity: 1; }
+    }
+    
+    @keyframes slow-spin {
+        0% { transform: rotateX(0) rotateY(0); }
+        100% { transform: rotateX(360deg) rotateY(360deg); }
+    }
+    
+    /* Apply animations */
+    .animate-blob {
+        animation: blob 10s infinite ease-in-out;
+    }
+    
+    .animate-float {
+        animation: float 6s infinite ease-in-out;
+    }
+    
+    .animate-float-medium {
+        animation: float-medium 8s infinite ease-in-out;
+    }
+    
+    .animate-float-slow {
+        animation: float-slow 10s infinite ease-in-out;
+    }
+    
+    .animate-gradient-x {
+        background-size: 200% 200%;
+        animation: gradient-x 5s infinite ease;
+    }
+    
+    .animate-fade-in-up {
+        animation: fade-in-up 0.8s ease forwards;
+        opacity: 0;
+    }
+    
+    .animate-fade-in {
+        animation: fade-in 1.2s ease forwards;
+    }
+    
+    .animate-slow-spin {
+        animation: slow-spin 18s infinite linear;
+    }
+    
+    /* Animation delays */
+    .animation-delay-300 {
+        animation-delay: 0.3s;
+    }
+    
+    .animation-delay-600 {
+        animation-delay: 0.6s;
+    }
+    
+    .animation-delay-900 {
+        animation-delay: 0.9s;
+    }
+    
+    .animation-delay-1000 {
+        animation-delay: 1s;
+    }
+    
+    .animation-delay-2000 {
+        animation-delay: 2s;
+    }
+    
+    .animation-delay-3000 {
+        animation-delay: 3s;
+    }
+    
+    .animation-delay-4000 {
+        animation-delay: 4s;
+    }
+    
+    /* Enhanced 3D cube */
+    .scene {
+        perspective: 1000px;
+    }
+    
+    .cube {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        transform-style: preserve-3d;
+    }
+    
+    .cube__face {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 16px;
+        border: 2px solid rgba(255, 255, 255, 0.5);
+        box-shadow: 0 0 30px rgba(99, 102, 241, 0.2);
+        backface-visibility: hidden;
+    }
+    
+    .cube__face--front {
+        transform: translateZ(8rem);
+    }
+    
+    .cube__face--back {
+        transform: rotateY(180deg) translateZ(8rem);
+    }
+    
+    .cube__face--right {
+        transform: rotateY(90deg) translateZ(8rem);
+    }
+    
+    .cube__face--left {
+        transform: rotateY(-90deg) translateZ(8rem);
+    }
+    
+    .cube__face--top {
+        transform: rotateX(90deg) translateZ(8rem);
+    }
+    
+    .cube__face--bottom {
+        transform: rotateX(-90deg) translateZ(8rem);
+    }
+    
+    /* Enhanced particles */
     .particle {
-        opacity: 0.8;
+        position: absolute;
+        border-radius: 50%;
+        opacity: 0.7;
+        filter: blur(8px);
+        pointer-events: none;
+    }
+    
+    .particle-1 {
+        top: 20%;
+        left: 60%;
+        width: 20px;
+        height: 20px;
+        animation: float 6s infinite ease-in-out;
+    }
+    
+    .particle-2 {
+        top: 60%;
+        left: 20%;
+        width: 15px;
+        height: 15px;
+        animation: float-medium 7.5s infinite ease-in-out reverse;
+    }
+    
+    .particle-3 {
+        top: 80%;
+        left: 50%;
+        width: 18px;
+        height: 18px;
+        animation: float-slow 8s infinite ease-in-out;
+    }
+    
+    .particle-4 {
+        top: 30%;
+        left: 80%;
+        width: 12px;
+        height: 12px;
+        animation: float 5.5s infinite ease-in-out reverse;
+    }
+    
+    .particle-5 {
+        top: 70%;
+        left: 15%;
+        width: 16px;
+        height: 16px;
+        animation: float-medium 9s infinite ease-in-out;
+    }
+    
+    /* Counter animation */
+    .counter {
+        display: inline-block;
+        position: relative;
+    }
+    
+    .counter::after {
+        content: "+";
+        position: absolute;
+        font-size: 0.8em;
+        top: 0;
+        right: -12px;
+    }
+    
+    /* Perspective utility */
+    .perspective-1000 {
+        perspective: 1000px;
     }
 </style>
+
+<script>
+// Counter animation
+document.addEventListener('DOMContentLoaded', () => {
+    const counters = document.querySelectorAll('.counter');
+    const speed = 200;
     
-    <!-- Custom Cursor Elements -->
-    <div class="cursor-dot"></div>
-    <div class="cursor-ring"></div>
+    counters.forEach(counter => {
+        const target = +counter.getAttribute('data-target');
+        const increment = target / speed;
+        
+        let count = 0;
+        const updateCount = () => {
+            count += increment;
+            
+            if (count < target) {
+                counter.innerText = Math.ceil(count);
+                setTimeout(updateCount, 1);
+            } else {
+                counter.innerText = target;
+            }
+        };
+        
+        // Start counting when element is in viewport
+        const observer = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting) {
+                updateCount();
+                observer.disconnect();
+            }
+        });
+        
+        observer.observe(counter);
+    });
+});
+</script>
     
-<!-- Fun Facts Section -->
+<!-- Fun Facts Section with Enhanced Hover Effects -->
 <section class="py-20 bg-gray-50 relative overflow-hidden">
     <!-- Background decoration -->
-    <div class="absolute inset-0 opacity-20">
-        <div class="absolute top-0 left-0 w-full h-64 bg-gradient-to-b from-indigo-200 to-transparent"></div>
+    <div class="absolute inset-0 opacity-20 pointer-events-none">
+        <div class="absolute top-0 left-0 w-full h-64 bg-gradient-to-b from-purple-200 to-transparent"></div>
         <div class="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-tl from-pink-200 to-transparent rounded-full transform translate-x-1/4 translate-y-1/4"></div>
     </div>
   
@@ -461,7 +753,7 @@
         <div class="text-center mb-16">
             <h2 class="text-4xl font-bold mb-6 inline-block relative">
                 <span class="text-gray-900 relative z-10">Our Fun Facts</span>
-                <span class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-indigo-500 to-pink-500"></span>
+                <span class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-purple-500 to-pink-500"></span>
             </h2>
             <p class="text-gray-600 max-w-3xl mx-auto text-lg">
                 Sed ut perspiciatis unde omnis iste natus error voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis.
@@ -471,72 +763,315 @@
         <!-- Stats Grid -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
             <!-- Stat 1 -->
-            <div class="relative group">
-                <div class="absolute inset-0 bg-gradient-to-r from-indigo-400 to-indigo-600 rounded-xl opacity-20 transform transition-transform duration-300 group-hover:scale-105 group-hover:opacity-30"></div>
-                <div class="relative bg-white rounded-xl p-8 transform transition-transform duration-300 group-hover:-translate-y-2 border border-indigo-100 shadow-md">
-                    <div class="text-center">
-                        <div class="flex items-center justify-center">
-                            <span class="text-5xl font-bold text-gray-900">40K</span>
-                            <span class="text-3xl font-bold text-indigo-600 ml-1">+</span>
-                        </div>
-                        <p class="text-gray-600 mt-2">Global Happy Clients</p>
+            <div class="stat-card group">
+                <div class="card-glow purple-glow"></div>
+                <div class="card-content purple-border">
+                    <div class="card-icon purple-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z" />
+                        </svg>
                     </div>
-                    <div class="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-indigo-500 to-transparent"></div>
+                    <div class="flex items-center justify-center mb-2">
+                        <span class="text-5xl font-bold text-gray-900 counter" data-target="40000">0</span>
+                        <span class="text-3xl font-bold text-purple-600 ml-1">+</span>
+                    </div>
+                    <p class="text-gray-600">Global Happy Clients</p>
+                    <div class="card-line purple-line"></div>
                 </div>
             </div>
   
             <!-- Stat 2 -->
-            <div class="relative group">
-                <div class="absolute inset-0 bg-gradient-to-r from-pink-400 to-pink-600 rounded-xl opacity-20 transform transition-transform duration-300 group-hover:scale-105 group-hover:opacity-30"></div>
-                <div class="relative bg-white rounded-xl p-8 transform transition-transform duration-300 group-hover:-translate-y-2 border border-pink-100 shadow-md">
-                    <div class="text-center">
-                        <div class="flex items-center justify-center">
-                            <span class="text-5xl font-bold text-gray-900">50K</span>
-                            <span class="text-3xl font-bold text-pink-600 ml-1">+</span>
-                        </div>
-                        <p class="text-gray-600 mt-2">Project Completed</p>
+            <div class="stat-card group">
+                <div class="card-glow pink-glow"></div>
+                <div class="card-content pink-border">
+                    <div class="card-icon pink-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M6 6V5a3 3 0 013-3h2a3 3 0 013 3v1h2a2 2 0 012 2v3.57A22.952 22.952 0 0110 13a22.95 22.95 0 01-8-1.43V8a2 2 0 012-2h2zm2-1a1 1 0 011-1h2a1 1 0 011 1v1H8V5zm1 5a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1z" clip-rule="evenodd" />
+                            <path d="M2 13.692V16a2 2 0 002 2h12a2 2 0 002-2v-2.308A24.974 24.974 0 0110 15c-2.796 0-5.487-.46-8-1.308z" />
+                        </svg>
                     </div>
-                    <div class="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-pink-500 to-transparent"></div>
+                    <div class="flex items-center justify-center mb-2">
+                        <span class="text-5xl font-bold text-gray-900 counter" data-target="50000">0</span>
+                        <span class="text-3xl font-bold text-pink-600 ml-1">+</span>
+                    </div>
+                    <p class="text-gray-600">Project Completed</p>
+                    <div class="card-line pink-line"></div>
                 </div>
             </div>
   
             <!-- Stat 3 -->
-            <div class="relative group">
-                <div class="absolute inset-0 bg-gradient-to-r from-purple-400 to-purple-600 rounded-xl opacity-20 transform transition-transform duration-300 group-hover:scale-105 group-hover:opacity-30"></div>
-                <div class="relative bg-white rounded-xl p-8 transform transition-transform duration-300 group-hover:-translate-y-2 border border-purple-100 shadow-md">
-                    <div class="text-center">
-                        <div class="flex items-center justify-center">
-                            <span class="text-5xl font-bold text-gray-900">245</span>
-                            <span class="text-3xl font-bold text-purple-600 ml-1">+</span>
-                        </div>
-                        <p class="text-gray-600 mt-2">Team Members</p>
+            <div class="stat-card group">
+                <div class="card-glow indigo-glow"></div>
+                <div class="card-content indigo-border">
+                    <div class="card-icon indigo-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z" />
+                        </svg>
                     </div>
-                    <div class="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-purple-500 to-transparent"></div>
+                    <div class="flex items-center justify-center mb-2">
+                        <span class="text-5xl font-bold text-gray-900 counter" data-target="245">0</span>
+                        <span class="text-3xl font-bold text-indigo-600 ml-1">+</span>
+                    </div>
+                    <p class="text-gray-600">Team Members</p>
+                    <div class="card-line indigo-line"></div>
                 </div>
             </div>
   
             <!-- Stat 4 -->
-            <div class="relative group">
-                <div class="absolute inset-0 bg-gradient-to-r from-blue-400 to-blue-600 rounded-xl opacity-20 transform transition-transform duration-300 group-hover:scale-105 group-hover:opacity-30"></div>
-                <div class="relative bg-white rounded-xl p-8 transform transition-transform duration-300 group-hover:-translate-y-2 border border-blue-100 shadow-md">
-                    <div class="text-center">
-                        <div class="flex items-center justify-center">
-                            <span class="text-5xl font-bold text-gray-900">550</span>
-                            <span class="text-3xl font-bold text-blue-600 ml-1">+</span>
-                        </div>
-                        <p class="text-gray-600 mt-2">Digital Products</p>
+            <div class="stat-card group">
+                <div class="card-glow blue-glow"></div>
+                <div class="card-content blue-border">
+                    <div class="card-icon blue-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M11 17a1 1 0 001.447.894l4-2A1 1 0 0017 15V9.236a1 1 0 00-1.447-.894l-4 2a1 1 0 00-.553.894V17zM15.211 6.276a1 1 0 000-1.788l-4.764-2.382a1 1 0 00-.894 0L4.789 4.488a1 1 0 000 1.788l4.764 2.382a1 1 0 00.894 0l4.764-2.382zM4.447 8.342A1 1 0 003 9.236V15a1 1 0 00.553.894l4 2A1 1 0 009 17v-5.764a1 1 0 00-.553-.894l-4-2z" />
+                        </svg>
                     </div>
-                    <div class="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-transparent"></div>
+                    <div class="flex items-center justify-center mb-2">
+                        <span class="text-5xl font-bold text-gray-900 counter" data-target="550">0</span>
+                        <span class="text-3xl font-bold text-blue-600 ml-1">+</span>
+                    </div>
+                    <p class="text-gray-600">Digital Products</p>
+                    <div class="card-line blue-line"></div>
                 </div>
             </div>
         </div>
   
-        <!-- Optional: Add some floating decorative elements -->
-        <div class="absolute top-10 left-10 w-6 h-6 bg-indigo-400 rounded-full opacity-30"></div>
-        <div class="absolute top-40 right-20 w-4 h-4 bg-pink-400 rounded-full opacity-30"></div>
-        <div class="absolute bottom-10 left-1/4 w-8 h-8 bg-purple-400 rounded-full opacity-30"></div>
+        <!-- Animated floating decorative elements -->
+        <div class="absolute top-10 left-10 w-6 h-6 bg-purple-400 rounded-full opacity-30 animate-float"></div>
+        <div class="absolute top-40 right-20 w-4 h-4 bg-pink-400 rounded-full opacity-30 animate-float-medium"></div>
+        <div class="absolute bottom-10 left-1/4 w-8 h-8 bg-indigo-400 rounded-full opacity-30 animate-float-slow"></div>
     </div>
-  </section>
+</section>
+
+<style>
+    /* Card base styles */
+    .stat-card {
+        position: relative;
+        height: 220px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        perspective: 1000px;
+    }
+    
+    .card-content {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        background: white;
+        border-radius: 16px;
+        padding: 2rem;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        z-index: 10;
+    }
+    
+    /* Glow effect */
+    .card-glow {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 16px;
+        opacity: 0;
+        z-index: 5;
+        transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        filter: blur(15px);
+    }
+    
+    /* Icon container */
+    .card-icon {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: white;
+        box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.95);
+        transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        opacity: 0;
+    }
+    
+    /* Bottom line */
+    .card-line {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 3px;
+        transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    
+    /* Hover effects */
+    .stat-card:hover .card-content {
+        transform: translateY(-10px) rotateX(10deg);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    }
+    
+    .stat-card:hover .card-glow {
+        opacity: 0.6;
+    }
+    
+    .stat-card:hover .card-icon {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+    
+    .stat-card:hover .card-line {
+        width: 100%;
+    }
+    
+    /* Purple theme */
+    .purple-border {
+        border: 1px solid rgba(167, 139, 250, 0.3);
+    }
+    
+    .purple-glow {
+        background: linear-gradient(135deg, #a78bfa 0%, #8b5cf6 100%);
+    }
+    
+    .purple-icon {
+        color: #8b5cf6;
+    }
+    
+    .purple-line {
+        background: linear-gradient(90deg, #8b5cf6 0%, rgba(139, 92, 246, 0.1) 100%);
+    }
+    
+    /* Pink theme */
+    .pink-border {
+        border: 1px solid rgba(236, 72, 153, 0.3);
+    }
+    
+    .pink-glow {
+        background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
+    }
+    
+    .pink-icon {
+        color: #db2777;
+    }
+    
+    .pink-line {
+        background: linear-gradient(90deg, #db2777 0%, rgba(219, 39, 119, 0.1) 100%);
+    }
+    
+    /* Indigo theme */
+    .indigo-border {
+        border: 1px solid rgba(99, 102, 241, 0.3);
+    }
+    
+    .indigo-glow {
+        background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+    }
+    
+    .indigo-icon {
+        color: #4f46e5;
+    }
+    
+    .indigo-line {
+        background: linear-gradient(90deg, #4f46e5 0%, rgba(79, 70, 229, 0.1) 100%);
+    }
+    
+    /* Blue theme */
+    .blue-border {
+        border: 1px solid rgba(59, 130, 246, 0.3);
+    }
+    
+    .blue-glow {
+        background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+    }
+    
+    .blue-icon {
+        color: #1d4ed8;
+    }
+    
+    .blue-line {
+        background: linear-gradient(90deg, #1d4ed8 0%, rgba(29, 78, 216, 0.1) 100%);
+    }
+    
+    /* Float animations */
+    @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+    }
+    
+    @keyframes float-medium {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-15px); }
+    }
+    
+    @keyframes float-slow {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-20px); }
+    }
+    
+    .animate-float {
+        animation: float 4s ease-in-out infinite;
+    }
+    
+    .animate-float-medium {
+        animation: float-medium 6s ease-in-out infinite;
+    }
+    
+    .animate-float-slow {
+        animation: float-slow 8s ease-in-out infinite;
+    }
+</style>
+
+<script>
+    // Counter animation
+    document.addEventListener('DOMContentLoaded', () => {
+        const counters = document.querySelectorAll('.counter');
+        const speed = 200;
+        
+        const animateCounter = (counter) => {
+            const target = parseInt(counter.getAttribute('data-target'));
+            const increment = target / speed;
+            
+            let count = 0;
+            const updateCount = () => {
+                count += increment;
+                
+                if (count < target) {
+                    let displayValue = Math.ceil(count).toString();
+                    // Format with commas if needed
+                    if (target >= 1000) {
+                        displayValue = Math.ceil(count).toLocaleString();
+                    }
+                    counter.innerText = displayValue;
+                    setTimeout(updateCount, 1);
+                } else {
+                    counter.innerText = target >= 1000 ? target.toLocaleString() : target;
+                }
+            };
+            
+            updateCount();
+        };
+        
+        // Use Intersection Observer to trigger counter animation when visible
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounter(entry.target);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {threshold: 0.1});
+        
+        counters.forEach(counter => {
+            observer.observe(counter);
+        });
+    });
+</script>
 <!-- Streamlined Services Section -->
 <section id="service" class="py-24 bg-white relative overflow-hidden">
     <!-- Simple background gradient - lighter version -->
@@ -1183,19 +1718,19 @@
     
     <div class="container mx-auto px-8 md:px-12 lg:px-16 relative z-10">
         <!-- Section Header -->
-        <div class="text-center mb-12">
+        <div class="text-center mb-16">
             <h2 class="text-3xl md:text-4xl font-bold mb-2 text-gray-900">Latest Projects</h2>
             <p class="text-lg text-gray-600 mb-4">Portfolio to explore</p>
-            <div class="w-20 h-1 bg-gradient-to-r from-indigo-500 to-pink-500 mx-auto"></div>
+            <div class="w-20 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto"></div>
         </div>
         
-        <!-- Project Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Project Grid with improved spacing -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
             <!-- Project Card 1 -->
             <div class="project-card">
                 <div class="portfolio-card bg-white rounded-lg overflow-hidden relative group h-full shadow-md">
                     <div class="aspect-square overflow-hidden">
-                        <img src="/api/placeholder/600/600" alt="Corporate Website Redesign" class="w-full h-full object-cover object-center transform transition-transform duration-700 group-hover:scale-110">
+                        <img src="1.png" alt="Corporate Website Redesign" class="w-full h-full object-cover object-center transform transition-transform duration-700 group-hover:scale-110">
                     </div>
                     
                     <!-- Project Info with Corner Label -->
@@ -1232,7 +1767,7 @@
             <div class="project-card">
                 <div class="portfolio-card bg-white rounded-lg overflow-hidden relative group h-full shadow-md">
                     <div class="aspect-square overflow-hidden">
-                        <img src="/api/placeholder/600/600" alt="E-commerce Mobile App" class="w-full h-full object-cover object-center transform transition-transform duration-700 group-hover:scale-110">
+                        <img src="2.png" alt="E-commerce Mobile App" class="w-full h-full object-cover object-center transform transition-transform duration-700 group-hover:scale-110">
                     </div>
                     
                     <!-- Project Info with Corner Label -->
@@ -1269,7 +1804,7 @@
             <div class="project-card">
                 <div class="portfolio-card bg-white rounded-lg overflow-hidden relative group h-full shadow-md">
                     <div class="aspect-square overflow-hidden">
-                        <img src="/api/placeholder/600/600" alt="Analytics Dashboard" class="w-full h-full object-cover object-center transform transition-transform duration-700 group-hover:scale-110">
+                        <img src="3.png" alt="Analytics Dashboard" class="w-full h-full object-cover object-center transform transition-transform duration-700 group-hover:scale-110">
                     </div>
                     
                     <!-- Project Info with Corner Label -->
@@ -1306,7 +1841,7 @@
             <div class="project-card">
                 <div class="portfolio-card bg-white rounded-lg overflow-hidden relative group h-full shadow-md">
                     <div class="aspect-square overflow-hidden">
-                        <img src="/api/placeholder/600/600" alt="Branding & Identity" class="w-full h-full object-cover object-center transform transition-transform duration-700 group-hover:scale-110">
+                        <img src="4.png" alt="Branding & Identity" class="w-full h-full object-cover object-center transform transition-transform duration-700 group-hover:scale-110">
                     </div>
                     
                     <!-- Project Info with Corner Label -->
@@ -1343,7 +1878,7 @@
             <div class="project-card">
                 <div class="portfolio-card bg-white rounded-lg overflow-hidden relative group h-full shadow-md">
                     <div class="aspect-square overflow-hidden">
-                        <img src="/api/placeholder/600/600" alt="Social Media Campaign" class="w-full h-full object-cover object-center transform transition-transform duration-700 group-hover:scale-110">
+                        <img src="5.png" alt="Social Media Campaign" class="w-full h-full object-cover object-center transform transition-transform duration-700 group-hover:scale-110">
                     </div>
                     
                     <!-- Project Info with Corner Label -->
@@ -1380,7 +1915,7 @@
             <div class="project-card">
                 <div class="portfolio-card bg-white rounded-lg overflow-hidden relative group h-full shadow-md">
                     <div class="aspect-square overflow-hidden">
-                        <img src="/api/placeholder/600/600" alt="3D Product Visualization" class="w-full h-full object-cover object-center transform transition-transform duration-700 group-hover:scale-110">
+                        <img src="cpw.png" alt="3D Product Visualization" class="w-full h-full object-cover object-center transform transition-transform duration-700 group-hover:scale-110">
                     </div>
                     
                     <!-- Project Info with Corner Label -->
@@ -1415,11 +1950,19 @@
         </div>
         
         <!-- View All Projects Button -->
-        <div class="flex justify-center mt-10">
-            <a href="#" class="px-6 py-3 bg-gradient-to-r from-indigo-600 to-pink-600 text-white font-medium rounded-full hover:from-indigo-700 hover:to-pink-700 transition-all duration-300 hover:shadow-lg hover:shadow-pink-500/20 transform hover:-translate-y-1">
+        <div class="flex justify-center mt-16">
+            <a href="#" class="px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold rounded-full hover:from-purple-700 hover:to-pink-700 transition-all duration-300 hover:shadow-lg hover:shadow-pink-500/20 transform hover:-translate-y-1 flex items-center">
                 View All Projects
+                <svg class="ml-2 w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                </svg>
             </a>
         </div>
+
+        <!-- Animated particles for decoration -->
+        <div class="pointer-events-none absolute top-10 right-10 w-8 h-8 rounded-full border-2 border-purple-300 opacity-30 animate-float"></div>
+        <div class="pointer-events-none absolute bottom-20 left-1/4 w-6 h-6 rounded-full border-2 border-pink-300 opacity-30 animate-float-medium"></div>
+        <div class="pointer-events-none absolute bottom-40 right-1/3 w-10 h-10 rounded-full border-2 border-indigo-300 opacity-30 animate-float-slow"></div>
     </div>
     
     <style>
@@ -1436,14 +1979,15 @@
       
       /* Portfolio card hover effects */
       .portfolio-card {
-          box-shadow: 0 4px 15px -5px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 4px 20px -5px rgba(0, 0, 0, 0.1);
           transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-          height: 300px;
+          height: 320px;
+          border-radius: 1rem;
       }
       
       .portfolio-card:hover {
-          transform: translateY(-6px);
-          box-shadow: 0 12px 25px -5px rgba(0, 0, 0, 0.15);
+          transform: translateY(-8px);
+          box-shadow: 0 16px 30px -5px rgba(0, 0, 0, 0.15);
       }
       
       /* Card overlay - Keep dark overlay on hover for text contrast */
@@ -1456,8 +2000,9 @@
           display: flex;
           flex-direction: column;
           justify-content: flex-end;
-          padding: 1.25rem;
+          padding: 1.5rem;
           z-index: 10; /* Higher than corner label */
+          border-radius: 1rem;
       }
       
       .portfolio-card:hover .card-overlay {
@@ -1490,17 +2035,17 @@
           overflow: hidden;
       }
       
-      /* Colors for different project types - Kept vibrant */
+      /* Colors for different project types - Updated to match our theme */
       .corner-label.blue {
-          background: linear-gradient(135deg, rgba(59, 130, 246, 0.9), rgba(37, 99, 235, 0.9));
+          background: linear-gradient(135deg, rgba(79, 70, 229, 0.9), rgba(67, 56, 202, 0.9));
       }
       
       .corner-label.pink {
-          background: linear-gradient(135deg, rgba(236, 72, 153, 0.9), rgba(219, 39, 119, 0.9));
+          background: linear-gradient(135deg, rgba(219, 39, 119, 0.9), rgba(190, 24, 93, 0.9));
       }
       
       .corner-label.purple {
-          background: linear-gradient(135deg, rgba(139, 92, 246, 0.9), rgba(124, 58, 237, 0.9));
+          background: linear-gradient(135deg, rgba(147, 51, 234, 0.9), rgba(126, 34, 206, 0.9));
       }
       
       .corner-label.indigo {
@@ -1525,6 +2070,34 @@
           left: 18px;
           color: white;
       }
+      
+      /* Animation keyframes */
+      @keyframes float {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-10px); }
+      }
+      
+      @keyframes float-medium {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-15px); }
+      }
+      
+      @keyframes float-slow {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-20px); }
+      }
+      
+      .animate-float {
+          animation: float 4s ease-in-out infinite;
+      }
+      
+      .animate-float-medium {
+          animation: float-medium 6s ease-in-out infinite;
+      }
+      
+      .animate-float-slow {
+          animation: float-slow 8s ease-in-out infinite;
+      }
     </style>
 </section>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 100" preserveAspectRatio="none">
@@ -1541,7 +2114,7 @@
             <div class="relative">
                 <h2 class="text-3xl md:text-4xl font-bold mb-6 text-gray-900 relative inline-block">
                     Our Agile Process
-                    <div class="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-indigo-500 to-pink-500"></div>
+                    <div class="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-purple-500 to-pink-500"></div>
                 </h2>
 
                 <p class="text-xl text-gray-600 mb-8 leading-relaxed relative">
@@ -1552,8 +2125,8 @@
                 <div class="space-y-6 relative">
                     <!-- Process Step 1 -->
                     <div class="flex items-start gap-4">
-                        <div class="w-11 h-11 rounded-full bg-indigo-900/30 border border-indigo-500/30 flex items-center justify-center flex-shrink-0 relative z-10">
-                            <span class="text-indigo-400 font-bold">01</span>
+                        <div class="step-number purple-step">
+                            <span>01</span>
                         </div>
                         <div>
                             <h3 class="text-xl font-bold text-gray-900 mb-2">Discovery</h3>
@@ -1563,8 +2136,8 @@
 
                     <!-- Process Step 2 -->
                     <div class="flex items-start gap-4">
-                        <div class="w-11 h-11 rounded-full bg-purple-900/30 border border-purple-500/30 flex items-center justify-center flex-shrink-0 relative z-10">
-                            <span class="text-purple-400 font-bold">02</span>
+                        <div class="step-number pink-step">
+                            <span>02</span>
                         </div>
                         <div>
                             <h3 class="text-xl font-bold text-gray-900 mb-2">Planning & Design</h3>
@@ -1574,8 +2147,8 @@
 
                     <!-- Process Step 3 -->
                     <div class="flex items-start gap-4">
-                        <div class="w-11 h-11 rounded-full bg-pink-900/30 border border-pink-500/30 flex items-center justify-center flex-shrink-0 relative z-10">
-                            <span class="text-pink-400 font-bold">03</span>
+                        <div class="step-number indigo-step">
+                            <span>03</span>
                         </div>
                         <div>
                             <h3 class="text-xl font-bold text-gray-900 mb-2">Iterative Development</h3>
@@ -1585,41 +2158,74 @@
                 </div>
             </div>
 
-            <div class="aspect-video bg-gray-100 relative overflow-hidden">
-                <video id="agile-process-video" class="w-full h-full object-cover" poster="/path/to/optional-thumbnail.jpg" loop>
-                    <source src="bg.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
+            <!-- Video Column -->
+            <div class="video-container rounded-2xl overflow-hidden shadow-lg">
+                <div class="aspect-video relative overflow-hidden rounded-2xl">
+                    <!-- Video element - autoplay and loop attributes added -->
+                    <video id="agile-process-video" class="w-full h-full object-cover" autoplay loop muted playsinline poster="/api/placeholder/600/350">
+                        <source src="bg.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
 
-                <!-- Play button overlay -->
-                <div class="absolute inset-0 flex items-center justify-center video-overlay">
-                    <button class="play-button" onclick="toggleVideo()">
-                        <div class="play-button-circle"></div>
-                        <svg class="play-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="24px" height="24px">
-                            <path d="M8 5v14l11-7z"/>
-                        </svg>
-                    </button>
+                    <!-- Play/Pause button overlay -->
+                    <div class="video-overlay">
+                        <button class="play-button" id="playPauseButton">
+                            <div class="play-button-circle"></div>
+                            <svg class="play-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="24px" height="24px">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
+                            <svg class="pause-icon hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="24px" height="24px">
+                                <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+                            </svg>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
     <script>
-        function toggleVideo() {
+        document.addEventListener('DOMContentLoaded', function() {
             const video = document.getElementById('agile-process-video');
+            const playPauseButton = document.getElementById('playPauseButton');
+            const playIcon = playPauseButton.querySelector('.play-icon');
+            const pauseIcon = playPauseButton.querySelector('.pause-icon');
             const overlay = document.querySelector('.video-overlay');
-
-            if (video.paused) {
-                video.play();
-                overlay.style.opacity = '0';
-            } else {
-                video.pause();
-                overlay.style.opacity = '1';
-            }
-        }
-
-        // Also make the video controls appear when video is playing
-        document.getElementById('agile-process-video').addEventListener('play', function() {
-            this.setAttribute('controls', 'controls');
+            
+            // Initially the video is playing (autoplay) so show the pause icon
+            playIcon.classList.add('hidden');
+            pauseIcon.classList.remove('hidden');
+            
+            // Make overlay semi-transparent initially since video is already playing
+            overlay.classList.add('semi-transparent');
+            
+            playPauseButton.addEventListener('click', function() {
+                if (video.paused) {
+                    // If video is paused, play it
+                    video.play();
+                    playIcon.classList.add('hidden');
+                    pauseIcon.classList.remove('hidden');
+                    overlay.classList.add('semi-transparent');
+                } else {
+                    // If video is playing, pause it
+                    video.pause();
+                    playIcon.classList.remove('hidden');
+                    pauseIcon.classList.add('hidden');
+                    overlay.classList.remove('semi-transparent');
+                }
+            });
+            
+            // Fade overlay when hovering over the video container
+            const videoContainer = document.querySelector('.video-container');
+            videoContainer.addEventListener('mouseenter', function() {
+                if (!video.paused) {
+                    overlay.classList.add('hover-fade');
+                }
+            });
+            
+            videoContainer.addEventListener('mouseleave', function() {
+                overlay.classList.remove('hover-fade');
+            });
         });
     </script>
 
@@ -1635,49 +2241,82 @@
             background-position: 0 0, 0 0, 0 0, 0 0;
         }
 
+        /* Step number styling */
+        .step-number {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-weight: bold;
+            position: relative;
+            z-index: 10;
+            border-width: 1px;
+            border-style: solid;
+            transition: transform 0.3s ease;
+        }
+        
+        .step-number:hover {
+            transform: scale(1.1);
+        }
+        
+        .purple-step {
+            background-color: rgba(147, 51, 234, 0.1);
+            border-color: rgba(147, 51, 234, 0.3);
+            color: #9333EA;
+        }
+        
+        .pink-step {
+            background-color: rgba(219, 39, 119, 0.1);
+            border-color: rgba(219, 39, 119, 0.3);
+            color: #DB2777;
+        }
+        
+        .indigo-step {
+            background-color: rgba(79, 70, 229, 0.1);
+            border-color: rgba(79, 70, 229, 0.3);
+            color: #4F46E5;
+        }
+
         /* Video container styling */
         .video-container {
             position: relative;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .video-container:hover {
             transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
-
-        /* Play button styling */
-        .play-button {
-            position: relative;
-            z-index: 10;
-            width: 80px;
-            height: 80px;
-            border: none;
-            background: transparent;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-
-        .play-button:hover {
-            transform: scale(1.1);
-        }
-
-        .play-button-circle {
+        
+        /* Video overlay */
+        .video-overlay {
             position: absolute;
             inset: 0;
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.8), rgba(236, 72, 153, 0.8));
-            border-radius: 50%;
-            opacity: 0.9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(0, 0, 0, 0.2);
+            transition: opacity 0.3s ease, background-color 0.3s ease;
+        }
+        
+        .video-overlay.semi-transparent {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+        
+        .video-overlay.hover-fade {
+            opacity: 0;
+        }
+        
+        .video-overlay:hover {
+            opacity: 1 !important;
         }
 
-        .play-icon {
-            position: relative;
-            width: 24px;
-            height: 24px;
-            margin-left: 5px; /* Adjust for visual center */
-        }
+      
     </style>
 </section>
-
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 100" fill="none" preserveAspectRatio="none">
     <path d="M0,0 C240,100 480,100 720,50 C960,0 1200,0 1440,100 L1440,100 L0,100 Z" fill="#F3F4F6"/>
 </svg>
