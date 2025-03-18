@@ -276,56 +276,624 @@
     </style>
 </head>
 <body class="bg-white text-gray-100 cursor-none">
-    <header class="fixed w-full transition-all duration-300 z-50 header-animated">
-        <div class="bg-gray-100 bg-opacity-90 nav-glow">
-            <div class="container mx-auto px-8 md:px-12 lg:px-16 py-3">
-                <nav class="flex items-center justify-between">
-                    <!-- Logo Section -->
-                    <div class="flex items-center space-x-3">
-                        <a href="index.html" class="block">
-                            <div class="logo-icon w-12 h-12 rounded-xl flex items-center justify-center shadow-lg transform transition-transform hover:rotate-12 hover:scale-110 duration-300 overflow-hidden">
-                                <img src="/api/placeholder/48/48" alt="Logo" class="w-full h-full object-cover">
-                            </div>
+  <header class="fixed w-full transition-all duration-300 z-50 header-animated">
+    <div class="bg-gray-100 bg-opacity-90 nav-glow">
+        <div class="container mx-auto px-4 py-3">
+            <nav class="flex items-center justify-between">
+                <!-- Logo Section -->
+                <div class="flex items-center space-x-3">
+                    <div class="logo-icon w-10 h-10 md:w-12 md:h-12 rounded-xl flex items-center justify-center shadow-lg transform transition-transform hover:rotate-12 hover:scale-110 duration-300 overflow-hidden">
+                        <img src="./logo.png" alt="Logo" class="w-full h-full object-cover">
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-xl md:text-2xl font-bold text-gray-800 tracking-tight">Slide Creators</span>
+                        <span class="text-xs text-gray-500 -mt-1">Solutions that inspire</span>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden lg:flex items-center space-x-4 xl:space-x-8">
+                    <a href="/" class="nav-link active font-semibold text-indigo-600 transition-colors">Home</a>
+
+                    <!-- Services Dropdown -->
+                    <div class="relative group">
+                        <a href="javascript:void(0)" class="nav-link font-medium text-gray-600 hover:text-indigo-600 transition-colors flex items-center">
+                            Our Services
+                            <svg class="ml-1 w-4 h-4 transition-transform duration-200 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
                         </a>
-                        
-                        <div class="flex flex-col">
-                            <span class="text-2xl font-bold text-gray-800 tracking-tight">Slide Creators</span>
-                            <span class="text-xs text-gray-500 -mt-1">Solutions that inspire</span>
+
+                        <!-- Mega Dropdown Menu -->
+                        <div class="mega-dropdown absolute right-0 mt-2 w-max bg-white rounded-xl shadow-xl opacity-0 invisible transform -translate-y-4 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 ease-in-out z-50">
+                            <div class="grid grid-cols-2 lg:grid-cols-4 p-6 gap-6">
+                                <!-- Column 1: Presentation & Design -->
+                                <div class="service-column">
+                                    <h3 class="text-base font-bold text-indigo-600 mb-3 pb-2 border-b border-gray-200">Presentation & Design</h3>
+                                    <ul class="space-y-2">
+                                        <li><a href="/#contact" class="service-link dropdown-link">Flipping & Formatting</a></li>
+                                        <li><a href="/#contact" class="service-link dropdown-link">Slide Design</a></li>
+                                        <li><a href="/#contact" class="service-link dropdown-link">Report Design</a></li>
+                                        <li><a href="/#contact" class="service-link dropdown-link">Animated Presentation</a></li>
+                                    </ul>
+                                </div>
+
+                                <!-- Column 2: Animation & Communication -->
+                                <div class="service-column">
+                                    <h3 class="text-base font-bold text-pink-600 mb-3 pb-2 border-b border-gray-200">Animation & Comm</h3>
+                                    <ul class="space-y-2">
+                                        <li><a href="/#contact" class="service-link dropdown-link">Animation Videos</a></li>
+                                        <li><a href="/#contact" class="service-link dropdown-link">Stock Videos</a></li>
+                                        <li><a href="/#contact" class="service-link dropdown-link">Character Animation</a></li>
+                                        <li><a href="/#contact" class="service-link dropdown-link">3D Animation</a></li>
+                                    </ul>
+                                </div>
+
+                                <!-- Column 3: Content & Marketing -->
+                                <div class="service-column">
+                                    <h3 class="text-base font-bold text-purple-600 mb-3 pb-2 border-b border-gray-200">Content & Marketing</h3>
+                                    <ul class="space-y-2">
+                                        <li><a href="/#contact" class="service-link dropdown-link">Content Creation</a></li>
+                                        <li><a href="/#contact" class="service-link dropdown-link">Blog Writing</a></li>
+                                        <li><a href="/#contact" class="service-link dropdown-link">Article Writing</a></li>
+                                        <li><a href="/#contact" class="service-link dropdown-link">Digital Marketing</a></li>
+                                    </ul>
+                                </div>
+
+                                <!-- Column 4: Technology & Operations -->
+                                <div class="service-column">
+                                    <h3 class="text-base font-bold text-blue-600 mb-3 pb-2 border-b border-gray-200">Technology & Ops</h3>
+                                    <ul class="space-y-2">
+                                        <li><a href="/#contact" class="service-link dropdown-link">Technology & AI</a></li>
+                                        <li><a href="/#contact" class="service-link dropdown-link">Web Development</a></li>
+                                        <li><a href="/#contact" class="service-link dropdown-link">Mobile App Dev</a></li>
+                                        <li><a href="/#contact" class="service-link dropdown-link">AI Development</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Footer with CTA -->
+                            <div class="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-b-xl p-4 flex flex-col sm:flex-row justify-between items-center">
+                                <p class="text-gray-700 font-medium mb-2 sm:mb-0">Need a custom solution? We're here to help!</p>
+                                <a href="/#contact" class="px-4 py-2 bg-gradient-to-r from-indigo-500 to-purple-500 text-white font-medium rounded-full hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 dropdown-link">Get a Quote</a>
+                            </div>
                         </div>
                     </div>
-                    
-                    <!-- Desktop Navigation -->
-                    <div class="hidden lg:flex items-center space-x-8">
-                        <a href="index.html" class="nav-link  font-semibold text-indigo-600 transition-colors">Home</a>
 
-                        <a href="index.html#service" class="nav-link font-medium text-gray-600 hover:text-indigo-600 transition-colors">Our Services</a>
-                        <a href="index.html#projects" class="nav-link font-medium text-gray-600 hover:text-indigo-600 transition-colors">Our Portfolio</a>
-                        <a href="index.html#contact" class="px-6 py-2 bg-indigo-600 text-white font-medium rounded-full shadow-md hover:bg-indigo-700 transition-colors">Contact Us</a>
-                    </div>
-                    
-                    <!-- Mobile Menu Button -->
-                    <div class="lg:hidden">
-                        <button id="menu-toggle" class="bg-gray-200 hover:bg-gray-300 transition-colors p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
-                            <i class="fas fa-bars text-gray-600"></i>
+                    <a href="/#projects" class="nav-link font-medium text-gray-600 hover:text-indigo-600 transition-colors">Portfolio</a>
+                    <a href="/#contact" class="px-4 py-2 bg-indigo-600 text-white font-medium rounded-full shadow-md hover:bg-indigo-700 transition-colors">Contact</a>
+                </div>
+
+                <!-- Mobile Menu Hamburger Button -->
+                <button id="mobile-menu-toggle" class="lg:hidden text-gray-600 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </nav>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="lg:hidden py-4 border-t border-gray-300 mt-2 bg-gray-100 bg-opacity-95 mobile-menu-slide hidden">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col space-y-4">
+                    <a href="#" class="nav-link active font-semibold text-indigo-600 transition-colors">Home</a>
+                    <a href="team.html" class="nav-link font-medium text-gray-600 hover:text-indigo-600 transition-colors">About us</a>
+
+                    <!-- Mobile Services Dropdown -->
+                    <div class="relative">
+                        <button id="mobile-services-btn" class="w-full flex justify-between items-center text-left nav-link font-medium text-gray-600 hover:text-indigo-600 transition-colors">
+                            Our Services
+                            <svg class="w-4 h-4 transform transition-transform duration-200" id="mobile-services-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
                         </button>
-                    </div>
-                </nav>
-            </div>
-            
-            <!-- Mobile Navigation -->
-            <div id="mobile-menu" class="lg:hidden py-4 border-t border-gray-300 mt-2 bg-gray-100 bg-opacity-95 mobile-menu-slide hidden">
-                <div class="container mx-auto px-8 md:px-12 lg:px-16">
-                    <div class="flex flex-col space-y-4">
-                        <a href="index.html#" class="nav-link  font-semibold text-indigo-600 transition-colors">Home</a>
 
-                        <a href="index.html#service" class="nav-link font-medium text-gray-600 hover:text-indigo-600 transition-colors">Our Services</a>
-                        <a href="index.html#projects" class="nav-link font-medium text-gray-600 hover:text-indigo-600 transition-colors">Our Portfolio</a>
-                        <a href="index.html#contact" class="px-6 py-2 bg-indigo-600 text-white font-medium rounded-full shadow-md hover:bg-indigo-700 transition-colors text-center">Contact Us</a>
+                        <!-- Mobile Services List -->
+                        <div id="mobile-services-list" class="hidden mt-2 bg-gray-50 rounded-lg p-4 space-y-4">
+                            <!-- Presentation & Design -->
+                            <div class="mobile-service-category">
+                                <button class="mobile-category-btn w-full flex justify-between items-center font-medium text-indigo-600">
+                                    Presentation & Design
+                                    <svg class="w-4 h-4 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                    </svg>
+                                </button>
+                                <div class="mobile-category-content hidden mt-2 pl-4 space-y-2 border-l-2 border-indigo-200">
+                                    <a href="/#contact" class="block text-gray-600 hover:text-indigo-600 mobile-dropdown-link">Flipping & Formatting</a>
+                                    <a href="/#contact" class="block text-gray-600 hover:text-indigo-600 mobile-dropdown-link">Slide Design</a>
+                                    <a href="/#contact" class="block text-gray-600 hover:text-indigo-600 mobile-dropdown-link">Report Design</a>
+                                </div>
+                            </div>
+
+                            <!-- Animation & Communication -->
+                            <div class="mobile-service-category">
+                                <button class="mobile-category-btn w-full flex justify-between items-center font-medium text-pink-600">
+                                    Animation & Communication
+                                    <svg class="w-4 h-4 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                    </svg>
+                                </button>
+                                <div class="mobile-category-content hidden mt-2 pl-4 space-y-2 border-l-2 border-pink-200">
+                                    <a href="/#contact" class="block text-gray-600 hover:text-pink-600 mobile-dropdown-link">Animation Videos</a>
+                                    <a href="/#contact" class="block text-gray-600 hover:text-pink-600 mobile-dropdown-link">3D Animation</a>
+                                    <a href="/#contact" class="block text-gray-600 hover:text-pink-600 mobile-dropdown-link">Film Production</a>
+                                </div>
+                            </div>
+
+                            <!-- Content & Marketing -->
+                            <div class="mobile-service-category">
+                                <button class="mobile-category-btn w-full flex justify-between items-center font-medium text-purple-600">
+                                    Content & Marketing
+                                    <svg class="w-4 h-4 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                    </svg>
+                                </button>
+                                <div class="mobile-category-content hidden mt-2 pl-4 space-y-2 border-l-2 border-purple-200">
+                                    <a href="/#contact" class="block text-gray-600 hover:text-purple-600 mobile-dropdown-link">Content Creation</a>
+                                    <a href="/#contact" class="block text-gray-600 hover:text-purple-600 mobile-dropdown-link">Blog Writing</a>
+                                    <a href="/#contact" class="block text-gray-600 hover:text-purple-600 mobile-dropdown-link">Digital Marketing</a>
+                                </div>
+                            </div>
+
+                            <!-- Technology & Operations -->
+                            <div class="mobile-service-category">
+                                <button class="mobile-category-btn w-full flex justify-between items-center font-medium text-blue-600">
+                                    Technology & Operations
+                                    <svg class="w-4 h-4 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                    </svg>
+                                </button>
+                                <div class="mobile-category-content hidden mt-2 pl-4 space-y-2 border-l-2 border-blue-200">
+                                    <a href="/#contact" class="block text-gray-600 hover:text-blue-600 mobile-dropdown-link">Technology & AI</a>
+                                    <a href="/#contact" class="block text-gray-600 hover:text-blue-600 mobile-dropdown-link">Web App Development</a>
+                                    <a href="/#contact" class="block text-gray-600 hover:text-blue-600 mobile-dropdown-link">Mobile App Development</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+
+                    <a href="/#projects" class="nav-link font-medium text-gray-600 hover:text-indigo-600 transition-colors">Our Portfolio</a>
+                    <a href="/#contact" class="px-6 py-2 bg-indigo-600 text-white font-medium rounded-full shadow-md hover:bg-indigo-700 transition-colors text-center">Contact Us</a>
                 </div>
             </div>
         </div>
-    </header>
+    </div>
+</header>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Mobile Menu Toggle
+    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    if (mobileMenuToggle && mobileMenu) {
+        mobileMenuToggle.addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
+            if (mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.remove('show');
+            } else {
+                mobileMenu.classList.add('show');
+            }
+        });
+    }
+
+    // Mobile Services Dropdown Toggle
+    const mobileServicesBtn = document.getElementById('mobile-services-btn');
+    const mobileServicesList = document.getElementById('mobile-services-list');
+    const mobileServicesIcon = document.getElementById('mobile-services-icon');
+
+    if (mobileServicesBtn && mobileServicesList) {
+        mobileServicesBtn.addEventListener('click', function() {
+            mobileServicesList.classList.toggle('hidden');
+            if (mobileServicesIcon) {
+                mobileServicesIcon.classList.toggle('rotate-180');
+            }
+        });
+    }
+
+    // Mobile Category Dropdowns
+    const mobileCategoryBtns = document.querySelectorAll('.mobile-category-btn');
+
+    mobileCategoryBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const content = this.nextElementSibling;
+            const icon = this.querySelector('svg');
+
+            // Toggle current dropdown
+            content.classList.toggle('hidden');
+            if (icon) {
+                icon.classList.toggle('rotate-180');
+            }
+
+            // Close other dropdowns
+            mobileCategoryBtns.forEach(otherBtn => {
+                if (otherBtn !== btn) {
+                    const otherContent = otherBtn.nextElementSibling;
+                    const otherIcon = otherBtn.querySelector('svg');
+
+                    otherContent.classList.add('hidden');
+                    if (otherIcon) {
+                        otherIcon.classList.remove('rotate-180');
+                    }
+                }
+            });
+        });
+    });
+
+    // Close dropdown when clicking on a link inside it
+    const dropdownLinks = document.querySelectorAll('.dropdown-link');
+    dropdownLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            // Find the closest dropdown container
+            const dropdownContainer = document.querySelector('.mega-dropdown');
+            
+            // Add a small delay to let the click finish before closing the dropdown
+            setTimeout(() => {
+                // Remove the hover effect from the parent group to close the dropdown
+                document.querySelector('.group').classList.remove('hover-active');
+            }, 100);
+        });
+    });
+
+    // Close mobile dropdown when clicking on links
+    const mobileDropdownLinks = document.querySelectorAll('.mobile-dropdown-link');
+    mobileDropdownLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            // Close mobile menu
+            if (mobileMenu) {
+                mobileMenu.classList.add('hidden');
+                mobileMenu.classList.remove('show');
+            }
+            
+            // Close service list
+            if (mobileServicesList) {
+                mobileServicesList.classList.add('hidden');
+                if (mobileServicesIcon) {
+                    mobileServicesIcon.classList.remove('rotate-180');
+                }
+            }
+            
+            // Close category content
+            const allMobileContent = document.querySelectorAll('.mobile-category-content');
+            allMobileContent.forEach(content => {
+                content.classList.add('hidden');
+            });
+            
+            // Reset all category icons
+            const allMobileIcons = document.querySelectorAll('.mobile-category-btn svg');
+            allMobileIcons.forEach(icon => {
+                icon.classList.remove('rotate-180');
+            });
+        });
+    });
+
+    // Header scroll effect
+    window.addEventListener('scroll', () => {
+        const header = document.querySelector('header');
+        if (window.scrollY > 50) {
+            header.classList.add('bg-white', 'shadow-md');
+            header.classList.remove('bg-opacity-90');
+        } else {
+            header.classList.remove('bg-white', 'shadow-md');
+            header.classList.add('bg-opacity-90');
+        }
+    });
+});
+</script>
+
+<style>
+/* Mobile menu slide animation */
+.mobile-menu-slide {
+    transform: translateY(-20px);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    display: none;
+}
+
+.mobile-menu-slide.show {
+    transform: translateY(0);
+    opacity: 1;
+    display: block;
+}
+
+/* Mobile category content styles */
+.mobile-category-content.hidden {
+    display: none;
+}
+
+/* Desktop dropdown menu styles */
+.group:hover .group-hover\:opacity-100 {
+    opacity: 1;
+}
+
+.group:hover .group-hover\:visible {
+    visibility: visible;
+}
+
+.group:hover .group-hover\:translate-y-0 {
+    transform: translateY(0);
+}
+
+/* Service link hover animation */
+.service-link {
+    position: relative;
+    display: inline-block;
+    color: #4B5563;
+    transition: all 0.3s ease;
+    padding-left: 0;
+}
+
+.service-link:hover {
+    color: #4F46E5;
+    transform: translateX(4px);
+    font-weight: 500;
+}
+
+/* Better nav-link animation */
+.nav-link {
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-link::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    bottom: -5px;
+    left: 0;
+    background: linear-gradient(90deg, #6366F1, #EC4899);
+    transform: translateX(-100%);
+    transition: transform 0.4s cubic-bezier(0.7, 0, 0.3, 1);
+}
+
+.nav-link:hover::before, 
+.nav-link.active::before {
+    transform: translateX(0);
+}
+
+/* Improved mobile menu appearance */
+@media (max-width: 1023px) {
+    #mobile-menu {
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        border-bottom: 1px solid #e5e7eb;
+    }
+    
+    .mobile-category-btn svg {
+        transition: transform 0.3s ease;
+    }
+    
+    .mobile-category-btn.open svg {
+        transform: rotate(180deg);
+    }
+}
+
+/* Mega dropdown positioning */
+.mega-dropdown {
+    width: auto;
+    min-width: 650px;
+    max-width: 800px;
+}
+
+/* For screens where the dropdown might overflow */
+@media (max-width: 1200px) {
+    .mega-dropdown {
+        right: -100px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .mega-dropdown {
+        right: -200px;
+    }
+}
+
+/* Keep dropdown content structured */
+.service-column {
+    min-width: 150px;
+}
+
+/* Group hover active state */
+.group.hover-active .group-hover\:opacity-100 {
+    opacity: 1;
+}
+
+.group.hover-active .group-hover\:visible {
+    visibility: visible;
+}
+
+.group.hover-active .group-hover\:translate-y-0 {
+    transform: translateY(0);
+}
+
+/* Simulate hover effect for touch devices */
+@media (hover: none) {
+    .group:active .group-hover\:opacity-100 {
+        opacity: 1;
+    }
+    
+    .group:active .group-hover\:visible {
+        visibility: visible;
+    }
+    
+    .group:active .group-hover\:translate-y-0 {
+        transform: translateY(0);
+    }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Mobile Menu Toggle
+    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    if (mobileMenuToggle && mobileMenu) {
+        mobileMenuToggle.addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
+            if (mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.remove('show');
+            } else {
+                mobileMenu.classList.add('show');
+            }
+        });
+    }
+
+    // Mobile Services Dropdown Toggle
+    const mobileServicesBtn = document.getElementById('mobile-services-btn');
+    const mobileServicesList = document.getElementById('mobile-services-list');
+    const mobileServicesIcon = document.getElementById('mobile-services-icon');
+
+    if (mobileServicesBtn && mobileServicesList) {
+        mobileServicesBtn.addEventListener('click', function() {
+            mobileServicesList.classList.toggle('hidden');
+            if (mobileServicesIcon) {
+                mobileServicesIcon.classList.toggle('rotate-180');
+            }
+        });
+    }
+
+    // Mobile Category Dropdowns
+    const mobileCategoryBtns = document.querySelectorAll('.mobile-category-btn');
+
+    mobileCategoryBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const content = this.nextElementSibling;
+            const icon = this.querySelector('svg');
+
+            // Toggle current dropdown
+            content.classList.toggle('hidden');
+            if (icon) {
+                icon.classList.toggle('rotate-180');
+            }
+
+            // Close other dropdowns
+            mobileCategoryBtns.forEach(otherBtn => {
+                if (otherBtn !== btn) {
+                    const otherContent = otherBtn.nextElementSibling;
+                    const otherIcon = otherBtn.querySelector('svg');
+
+                    otherContent.classList.add('hidden');
+                    if (otherIcon) {
+                        otherIcon.classList.remove('rotate-180');
+                    }
+                }
+            });
+        });
+    });
+
+    // Header scroll effect
+    window.addEventListener('scroll', () => {
+        const header = document.querySelector('header');
+        if (window.scrollY > 50) {
+            header.classList.add('bg-white', 'shadow-md');
+            header.classList.remove('bg-opacity-90');
+        } else {
+            header.classList.remove('bg-white', 'shadow-md');
+            header.classList.add('bg-opacity-90');
+        }
+    });
+});
+</script>
+
+<style>
+/* Mobile menu slide animation */
+.mobile-menu-slide {
+    transform: translateY(-20px);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    display: none;
+}
+
+.mobile-menu-slide.show {
+    transform: translateY(0);
+    opacity: 1;
+    display: block;
+}
+
+/* Mobile category content styles */
+.mobile-category-content.hidden {
+    display: none;
+}
+
+/* Desktop dropdown menu styles */
+.group:hover .group-hover\:opacity-100 {
+    opacity: 1;
+}
+
+.group:hover .group-hover\:visible {
+    visibility: visible;
+}
+
+.group:hover .group-hover\:translate-y-0 {
+    transform: translateY(0);
+}
+
+/* Service link hover animation */
+.service-link {
+    position: relative;
+    display: inline-block;
+    color: #4B5563;
+    transition: all 0.3s ease;
+    padding-left: 0;
+}
+
+.service-link:hover {
+    color: #4F46E5;
+    transform: translateX(4px);
+    font-weight: 500;
+}
+
+/* Better nav-link animation */
+.nav-link {
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-link::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    bottom: -5px;
+    left: 0;
+    background: linear-gradient(90deg, #6366F1, #EC4899);
+    transform: translateX(-100%);
+    transition: transform 0.4s cubic-bezier(0.7, 0, 0.3, 1);
+}
+
+.nav-link:hover::before, 
+.nav-link.active::before {
+    transform: translateX(0);
+}
+
+/* Improved mobile menu appearance */
+@media (max-width: 1023px) {
+    #mobile-menu {
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        border-bottom: 1px solid #e5e7eb;
+    }
+    
+    .mobile-category-btn svg {
+        transition: transform 0.3s ease;
+    }
+    
+    .mobile-category-btn.open svg {
+        transform: rotate(180deg);
+    }
+}
+
+/* Ensure dropdown doesn't push outside viewport */
+@media (min-width: 1024px) and (max-width: 1279px) {
+    .group:hover .group-hover\:visible {
+        max-width: calc(100vw - 2rem);
+        right: 0;
+    }
+}
+</style>
+
+
     
     <style>
         /* Updated nav-glow for light theme */
@@ -355,6 +923,80 @@
         .nav-link.active::before {
             transform: translateX(0);
         }
+        /* Enhanced Custom Cursor */
+.cursor-dot,
+.cursor-ring,
+.cursor-glow {
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    z-index: 9999;
+    transition: opacity 0.3s ease;
+    mix-blend-mode: difference;
+}
+
+.cursor-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #ffffff;
+    transform: translate(-50%, -50%);
+}
+
+.cursor-ring {
+    width: 40px;
+    height: 40px;
+    border: 2px solid rgba(236, 72, 153, 0.8);
+    background-color: transparent;
+    transform: translate(-50%, -50%);
+    transition: width 0.2s ease, height 0.2s ease, background-color 0.2s ease;
+}
+
+.cursor-glow {
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(circle, rgba(236, 72, 153, 0.15) 0%, rgba(236, 72, 153, 0) 70%);
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.cursor-grow .cursor-ring {
+    width: 60px;
+    height: 60px;
+    border-color: rgba(99, 102, 241, 0.7);
+    background-color: rgba(99, 102, 241, 0.05);
+}
+
+.cursor-grow .cursor-glow {
+    opacity: 1;
+}
+
+/* Particle trail effect */
+.particle-trail {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9990;
+    opacity: 0;
+}
+
+@keyframes particle-fade {
+    0% {
+        transform: scale(0) translate(0, 0);
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1.5) translate(var(--tx), var(--ty));
+        opacity: 0;
+    }
+}
     </style>
      
  <section id="about" class="py-20 bg-white relative overflow-hidden">
@@ -497,57 +1139,207 @@
 </svg>
 
 <br></br>
-<div>
-    <div class="text-center mb-10">
-        <h3 class="text-2xl font-bold text-gray-900 mb-4">Meet Our Team</h3>
-        <div class="w-16 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto mb-4"></div>
-    </div>
-    
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        <!-- Team Member 1 -->
-        <div class="team-card">
-            <div class="team-image-container">
-                <img src="/api/placeholder/300/300" alt="Sarah Johnson" class="team-image">
-            </div>
-            <div class="team-info">
-                <h4 class="text-lg font-bold text-gray-900">Sarah Johnson</h4>
-                <p class="text-purple-600 text-sm font-medium">CEO & Founder</p>
-            </div>
-        </div>
-        
-        <!-- Team Member 2 -->
-        <div class="team-card">
-            <div class="team-image-container">
-                <img src="/api/placeholder/300/300" alt="Michael Chen" class="team-image">
-            </div>
-            <div class="team-info">
-                <h4 class="text-lg font-bold text-gray-900">Michael Chen</h4>
-                <p class="text-pink-600 text-sm font-medium">CTO</p>
-            </div>
-        </div>
-        
-        <!-- Team Member 3 -->
-        <div class="team-card">
-            <div class="team-image-container">
-                <img src="/api/placeholder/300/300" alt="Emily Rodriguez" class="team-image">
-            </div>
-            <div class="team-info">
-                <h4 class="text-lg font-bold text-gray-900">Emily Rodriguez</h4>
-                <p class="text-indigo-600 text-sm font-medium">Creative Director</p>
-            </div>
-        </div>
-        
-        <!-- Team Member 4 -->
-        <div class="team-card">
-            <div class="team-image-container">
-                <img src="/api/placeholder/300/300" alt="David Kim" class="team-image">
-            </div>
-            <div class="team-info">
-                <h4 class="text-lg font-bold text-gray-900">David Kim</h4>
-                <p class="text-purple-600 text-sm font-medium">Head of Strategy</p>
-            </div>
-        </div>
-    </div>
+<div class="py-16 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
+  <!-- Decorative elements -->
+  <div class="absolute inset-0 pointer-events-none">
+      <div class="absolute top-10 left-10 w-32 h-32 bg-indigo-200/40 rounded-full filter blur-3xl"></div>
+      <div class="absolute bottom-10 right-20 w-40 h-40 bg-pink-200/30 rounded-full filter blur-3xl"></div>
+      <div class="absolute top-1/2 left-1/3 w-20 h-20 bg-purple-200/40 rounded-full filter blur-xl"></div>
+  </div>
+  
+  <div class="container mx-auto px-4 relative z-10">
+      <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-900 relative inline-block">
+              Our Exceptional Team
+              <div class="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-purple-500 to-pink-500"></div>
+          </h2>
+          <p class="text-gray-600 max-w-2xl mx-auto mt-4">
+              Our diverse team of experts collaborates to deliver extraordinary results. Together, we transform visions into reality with passion and precision.
+          </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
+          <!-- Designers Team -->
+          <div class="team-section relative overflow-hidden bg-white rounded-2xl p-1 transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+              <div class="absolute inset-0 bg-gradient-to-br from-indigo-500/20 to-pink-500/20 rounded-2xl"></div>
+              <div class="relative p-6 z-10 h-full flex flex-col">
+                  <div class="flex items-center mb-4">
+                      <div class="w-12 h-12 flex-shrink-0 rounded-lg bg-gradient-to-br from-indigo-500 to-pink-600 flex items-center justify-center shadow-lg">
+                          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+                          </svg>
+                      </div>
+                      <h3 class="text-xl font-bold text-gray-900 ml-4">Design Team</h3>
+                  </div>
+                  
+                  <div class="border-l-2 border-indigo-200 pl-4 py-2 mb-4 relative">
+                      <div class="absolute left-0 top-0 transform -translate-x-1/2 w-3 h-3 bg-indigo-500 rounded-full"></div>
+                      <p class="text-gray-700 font-medium">UI/UX Specialists</p>
+                      <p class="text-gray-600 text-sm">Creating intuitive interfaces that delight users while ensuring seamless experiences across all platforms.</p>
+                  </div>
+                  
+                  <div class="border-l-2 border-indigo-200 pl-4 py-2 mb-4 relative">
+                      <div class="absolute left-0 top-0 transform -translate-x-1/2 w-3 h-3 bg-pink-500 rounded-full"></div>
+                      <p class="text-gray-700 font-medium">Visual Designers</p>
+                      <p class="text-gray-600 text-sm">Crafting stunning visuals and brand identities that capture attention and communicate your story.</p>
+                  </div>
+                  
+                  <div class="border-l-2 border-indigo-200 pl-4 py-2 relative">
+                      <div class="absolute left-0 top-0 transform -translate-x-1/2 w-3 h-3 bg-purple-500 rounded-full"></div>
+                      <p class="text-gray-700 font-medium">Motion Designers</p>
+                      <p class="text-gray-600 text-sm">Bringing static designs to life with captivating animations that enhance user engagement.</p>
+                  </div>
+                  
+                  <div class="mt-auto pt-6">
+                      <div class="flex -space-x-2">
+                          <div class="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center text-xs font-medium text-indigo-600">JL</div>
+                          <div class="w-8 h-8 rounded-full bg-pink-100 flex items-center justify-center text-xs font-medium text-pink-600">MR</div>
+                          <div class="w-8 h-8 rounded-full bg-purple-100 flex items-center justify-center text-xs font-medium text-purple-600">KT</div>
+                          <div class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-xs font-medium text-gray-600">+2</div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          
+          <!-- Business Analysts -->
+          <div class="team-section relative overflow-hidden bg-white rounded-2xl p-1 transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+              <div class="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-indigo-500/20 rounded-2xl"></div>
+              <div class="relative p-6 z-10 h-full flex flex-col">
+                  <div class="flex items-center mb-4">
+                      <div class="w-12 h-12 flex-shrink-0 rounded-lg bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center shadow-lg">
+                          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                          </svg>
+                      </div>
+                      <h3 class="text-xl font-bold text-gray-900 ml-4">Business Analysts</h3>
+                  </div>
+                  
+                  <div class="border-l-2 border-blue-200 pl-4 py-2 mb-4 relative">
+                      <div class="absolute left-0 top-0 transform -translate-x-1/2 w-3 h-3 bg-blue-500 rounded-full"></div>
+                      <p class="text-gray-700 font-medium">Strategy Consultants</p>
+                      <p class="text-gray-600 text-sm">Analyzing market trends and business requirements to identify the most valuable opportunities.</p>
+                  </div>
+                  
+                  <div class="border-l-2 border-blue-200 pl-4 py-2 mb-4 relative">
+                      <div class="absolute left-0 top-0 transform -translate-x-1/2 w-3 h-3 bg-indigo-500 rounded-full"></div>
+                      <p class="text-gray-700 font-medium">Data Scientists</p>
+                      <p class="text-gray-600 text-sm">Transforming complex data into actionable insights that drive informed business decisions.</p>
+                  </div>
+                  
+                  <div class="border-l-2 border-blue-200 pl-4 py-2 relative">
+                      <div class="absolute left-0 top-0 transform -translate-x-1/2 w-3 h-3 bg-cyan-500 rounded-full"></div>
+                      <p class="text-gray-700 font-medium">Financial Analysts</p>
+                      <p class="text-gray-600 text-sm">Ensuring projects deliver maximum ROI while maintaining budget optimization.</p>
+                  </div>
+                  
+                  <div class="mt-auto pt-6">
+                      <div class="flex -space-x-2">
+                          <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-xs font-medium text-blue-600">RS</div>
+                          <div class="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center text-xs font-medium text-indigo-600">AW</div>
+                          <div class="w-8 h-8 rounded-full bg-cyan-100 flex items-center justify-center text-xs font-medium text-cyan-600">DM</div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          
+          <!-- Product Managers -->
+          <div class="team-section relative overflow-hidden bg-white rounded-2xl p-1 transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+              <div class="absolute inset-0 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-2xl"></div>
+              <div class="relative p-6 z-10 h-full flex flex-col">
+                  <div class="flex items-center mb-4">
+                      <div class="w-12 h-12 flex-shrink-0 rounded-lg bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center shadow-lg">
+                          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+                          </svg>
+                      </div>
+                      <h3 class="text-xl font-bold text-gray-900 ml-4">Product Managers</h3>
+                  </div>
+                  
+                  <div class="border-l-2 border-purple-200 pl-4 py-2 mb-4 relative">
+                      <div class="absolute left-0 top-0 transform -translate-x-1/2 w-3 h-3 bg-purple-500 rounded-full"></div>
+                      <p class="text-gray-700 font-medium">Strategic Visionaries</p>
+                      <p class="text-gray-600 text-sm">Defining product roadmaps and guiding cross-functional teams to achieve exceptional outcomes.</p>
+                  </div>
+                  
+                  <div class="border-l-2 border-purple-200 pl-4 py-2 mb-4 relative">
+                      <div class="absolute left-0 top-0 transform -translate-x-1/2 w-3 h-3 bg-pink-500 rounded-full"></div>
+                      <p class="text-gray-700 font-medium">Agile Experts</p>
+                      <p class="text-gray-600 text-sm">Implementing agile methodologies to ensure rapid, iterative delivery of high-quality products.</p>
+                  </div>
+                  
+                  <div class="border-l-2 border-purple-200 pl-4 py-2 relative">
+                      <div class="absolute left-0 top-0 transform -translate-x-1/2 w-3 h-3 bg-fuchsia-500 rounded-full"></div>
+                      <p class="text-gray-700 font-medium">Customer Advocates</p>
+                      <p class="text-gray-600 text-sm">Ensuring every product decision is centered around delighting users and meeting their needs.</p>
+                  </div>
+                  
+                  <div class="mt-auto pt-6">
+                      <div class="flex -space-x-2">
+                          <div class="w-8 h-8 rounded-full bg-purple-100 flex items-center justify-center text-xs font-medium text-purple-600">EL</div>
+                          <div class="w-8 h-8 rounded-full bg-pink-100 flex items-center justify-center text-xs font-medium text-pink-600">TK</div>
+                          <div class="w-8 h-8 rounded-full bg-fuchsia-100 flex items-center justify-center text-xs font-medium text-fuchsia-600">SJ</div>
+                          <div class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-xs font-medium text-gray-600">+1</div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          
+          <!-- Technology Advisors -->
+          <div class="team-section relative overflow-hidden bg-white rounded-2xl p-1 transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+              <div class="absolute inset-0 bg-gradient-to-br from-emerald-500/20 to-blue-500/20 rounded-2xl"></div>
+              <div class="relative p-6 z-10 h-full flex flex-col">
+                  <div class="flex items-center mb-4">
+                      <div class="w-12 h-12 flex-shrink-0 rounded-lg bg-gradient-to-br from-emerald-500 to-blue-600 flex items-center justify-center shadow-lg">
+                          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                          </svg>
+                      </div>
+                      <h3 class="text-xl font-bold text-gray-900 ml-4">Technology Advisors</h3>
+                  </div>
+                  
+                  <div class="border-l-2 border-emerald-200 pl-4 py-2 mb-4 relative">
+                      <div class="absolute left-0 top-0 transform -translate-x-1/2 w-3 h-3 bg-emerald-500 rounded-full"></div>
+                      <p class="text-gray-700 font-medium">Innovation Leaders</p>
+                      <p class="text-gray-600 text-sm">Guiding technology decisions that balance cutting-edge innovation with proven stability.</p>
+                  </div>
+                  
+                  <div class="border-l-2 border-emerald-200 pl-4 py-2 mb-4 relative">
+                      <div class="absolute left-0 top-0 transform -translate-x-1/2 w-3 h-3 bg-blue-500 rounded-full"></div>
+                      <p class="text-gray-700 font-medium">Solution Architects</p>
+                      <p class="text-gray-600 text-sm">Designing scalable, secure technology infrastructures that support business growth.</p>
+                  </div>
+                  
+                  <div class="border-l-2 border-emerald-200 pl-4 py-2 relative">
+                      <div class="absolute left-0 top-0 transform -translate-x-1/2 w-3 h-3 bg-teal-500 rounded-full"></div>
+                      <p class="text-gray-700 font-medium">Engineering Mentors</p>
+                      <p class="text-gray-600 text-sm">Fostering technical excellence and best practices across development teams.</p>
+                  </div>
+                  
+                  <div class="mt-auto pt-6">
+                      <div class="flex -space-x-2">
+                          <div class="w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center text-xs font-medium text-emerald-600">NB</div>
+                          <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-xs font-medium text-blue-600">CP</div>
+                          <div class="w-8 h-8 rounded-full bg-teal-100 flex items-center justify-center text-xs font-medium text-teal-600">RV</div>
+                          <div class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-xs font-medium text-gray-600">+3</div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      
+      <!-- Team Collaboration -->
+      <div class="mt-16 text-center">
+          <p class="text-gray-600 max-w-3xl mx-auto">
+              Our teams work collaboratively across disciplines, bringing together diverse perspectives 
+              to solve complex challenges and deliver exceptional results for our clients.
+          </p>
+          <div class="mt-8">
+              <a href="/#contact" class="inline-block px-8 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-medium rounded-full hover:shadow-lg shadow-pink-500/20 transform transition-all duration-300 hover:-translate-y-1">
+                  Work With Our Team
+              </a>
+          </div>
+      </div>
+  </div>
 </div>
 <section id="contact" class="py-24 bg-white relative overflow-hidden">
     <!-- Background decorations -->
