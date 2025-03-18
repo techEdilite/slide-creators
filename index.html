@@ -56,8 +56,33 @@
             position: relative;
             transform-style: preserve-3d;
             transform: translateZ(-100px);
-            animation: rotate 20s infinite linear;
+            /* animation: rotate 20s infinite linear; */
         }
+
+        /* Add this to your CSS for the particle trail effect */
+.particle-trail {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9990;
+    opacity: 0;
+}
+
+@keyframes particle-fade {
+    0% {
+        transform: scale(0) translate(0, 0);
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1.5) translate(var(--tx), var(--ty));
+        opacity: 0;
+    }
+}
         
         .cube__face {
             position: absolute;
@@ -210,16 +235,81 @@
             }
         }
         
-        .mobile-menu-slide {
-            transform: translateY(-20px);
-            opacity: 0;
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        
-        .mobile-menu-slide.show {
-            transform: translateY(0);
-            opacity: 1;
-        }
+        /* Mobile menu slide animation */
+.mobile-menu-slide {
+    transform: translateY(-20px);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    display: none;
+}
+
+.mobile-menu-slide.show {
+    transform: translateY(0);
+    opacity: 1;
+    display: block;
+}
+
+/* Mobile category content styles */
+.mobile-category-content.hidden {
+    display: none;
+}
+
+/* Desktop dropdown menu styles */
+.group:hover .group-hover\:opacity-100 {
+    opacity: 1;
+}
+
+.group:hover .group-hover\:visible {
+    visibility: visible;
+}
+
+.group:hover .group-hover\:translate-y-0 {
+    transform: translateY(0);
+}
+
+/* Service link hover animation */
+.service-link {
+    transition: all 0.3s ease;
+}
+
+.service-link:hover {
+    transform: translateX(4px);
+    font-weight: 500;
+}
+
+/* Better nav-link animation */
+.nav-link::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    bottom: -5px;
+    left: 0;
+    background: linear-gradient(90deg, #6366F1, #EC4899);
+    transform: translateX(-100%);
+    transition: transform 0.4s cubic-bezier(0.7, 0, 0.3, 1);
+}
+
+.nav-link:hover::before, 
+.nav-link.active::before {
+    transform: translateX(0);
+}
+
+/* Improved mobile menu appearance */
+@media (max-width: 1023px) {
+    #mobile-menu {
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        border-bottom: 1px solid #e5e7eb;
+    }
+    
+    .mobile-category-btn svg {
+        transition: transform 0.3s ease;
+    }
+    
+    .mobile-category-btn.open svg {
+        transform: rotate(180deg);
+    }
+}
         
         .header-animated {
             animation: slideDown 0.8s cubic-bezier(0.16, 1, 0.3, 1);
@@ -276,55 +366,628 @@
     </style>
 </head>
 <body class="bg-white text-gray-100 cursor-none">
-    <header class="fixed w-full transition-all duration-300 z-50 header-animated">
-        <div class="bg-gray-100 bg-opacity-90 nav-glow">
-            <div class="container mx-auto px-8 md:px-12 lg:px-16 py-3">
-                <nav class="flex items-center justify-between">
-                    <!-- Logo Section -->
-                    <div class="flex items-center space-x-3">
-                        <div class="logo-icon w-12 h-12 rounded-xl flex items-center justify-center shadow-lg transform transition-transform hover:rotate-12 hover:scale-110 duration-300 overflow-hidden">
-                            <img src="/api/placeholder/48/48" alt="Logo" class="w-full h-full object-cover">
-                        </div>
-                        <div class="flex flex-col">
-                            <span class="text-2xl font-bold text-gray-800 tracking-tight">Slide Creators</span>
-                            <span class="text-xs text-gray-500 -mt-1">Solutions that inspire</span>
-                        </div>
+    <div class="cursor-dot" id="cursor-dot"></div>
+<div class="cursor-ring" id="cursor-ring"></div>
+<div class="cursor-glow" id="cursor-glow"></div>
+<header class="fixed w-full transition-all duration-300 z-50 header-animated">
+    <div class="bg-gray-100 bg-opacity-90 nav-glow">
+        <div class="container mx-auto px-4 py-3">
+            <nav class="flex items-center justify-between">
+                <!-- Logo Section -->
+                <div class="flex items-center space-x-3">
+                    <div class="logo-icon w-10 h-10 md:w-12 md:h-12 rounded-xl flex items-center justify-center shadow-lg transform transition-transform hover:rotate-12 hover:scale-110 duration-300 overflow-hidden">
+                        <img src="./logo.png" alt="Logo" class="w-full h-full object-cover">
                     </div>
-                    
-                    <!-- Desktop Navigation -->
-                    <div class="hidden lg:flex items-center space-x-8">
-                        <a href="#" class="nav-link active font-semibold text-indigo-600 transition-colors">Home</a>
-                        <a href="team.html" class="nav-link font-medium text-gray-600 hover:text-indigo-600 transition-colors">About us</a>
+                    <div class="flex flex-col">
+                        <span class="text-xl md:text-2xl font-bold text-gray-800 tracking-tight">Slide Creators</span>
+                        <span class="text-xs text-gray-500 -mt-1">Solutions that inspire</span>
+                    </div>
+                </div>
 
-                        <a href="#service" class="nav-link font-medium text-gray-600 hover:text-indigo-600 transition-colors">Our Services</a>
-                        <a href="#projects" class="nav-link font-medium text-gray-600 hover:text-indigo-600 transition-colors">Our Portfolio</a>
-                        <a href="#contact" class="px-6 py-2 bg-indigo-600 text-white font-medium rounded-full shadow-md hover:bg-indigo-700 transition-colors">Contact Us</a>
+                <!-- Desktop Navigation -->
+                <div class="hidden lg:flex items-center space-x-4 xl:space-x-8">
+                    <a href="#" class="nav-link active font-semibold text-indigo-600 transition-colors">Home</a>
+                    <a href="team.html" class="nav-link font-medium text-gray-600 hover:text-indigo-600 transition-colors">About us</a>
+
+                    <!-- Services Dropdown -->
+                    <div class="relative group">
+                        <a href="javascript:void(0)" class="nav-link font-medium text-gray-600 hover:text-indigo-600 transition-colors flex items-center">
+                            Our Services
+                            <svg class="ml-1 w-4 h-4 transition-transform duration-200 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </a>
+
+                        <!-- Mega Dropdown Menu -->
+                        <div class="mega-dropdown absolute right-0 mt-2 w-max bg-white rounded-xl shadow-xl opacity-0 invisible transform -translate-y-4 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 ease-in-out z-50">
+                            <div class="grid grid-cols-2 lg:grid-cols-4 p-6 gap-6">
+                                <!-- Column 1: Presentation & Design -->
+                                <div class="service-column">
+                                    <h3 class="text-base font-bold text-indigo-600 mb-3 pb-2 border-b border-gray-200">Presentation & Design</h3>
+                                    <ul class="space-y-2">
+                                        <li><a href="#contact" class="service-link dropdown-link">Flipping & Formatting</a></li>
+                                        <li><a href="#contact" class="service-link dropdown-link">Slide Design</a></li>
+                                        <li><a href="#contact" class="service-link dropdown-link">Report Design</a></li>
+                                        <li><a href="#contact" class="service-link dropdown-link">Animated Presentation</a></li>
+                                    </ul>
+                                </div>
+
+                                <!-- Column 2: Animation & Communication -->
+                                <div class="service-column">
+                                    <h3 class="text-base font-bold text-pink-600 mb-3 pb-2 border-b border-gray-200">Animation & Comm</h3>
+                                    <ul class="space-y-2">
+                                        <li><a href="#contact" class="service-link dropdown-link">Animation Videos</a></li>
+                                        <li><a href="#contact" class="service-link dropdown-link">Stock Videos</a></li>
+                                        <li><a href="#contact" class="service-link dropdown-link">Character Animation</a></li>
+                                        <li><a href="#contact" class="service-link dropdown-link">3D Animation</a></li>
+                                    </ul>
+                                </div>
+
+                                <!-- Column 3: Content & Marketing -->
+                                <div class="service-column">
+                                    <h3 class="text-base font-bold text-purple-600 mb-3 pb-2 border-b border-gray-200">Content & Marketing</h3>
+                                    <ul class="space-y-2">
+                                        <li><a href="#contact" class="service-link dropdown-link">Content Creation</a></li>
+                                        <li><a href="#contact" class="service-link dropdown-link">Blog Writing</a></li>
+                                        <li><a href="#contact" class="service-link dropdown-link">Article Writing</a></li>
+                                        <li><a href="#contact" class="service-link dropdown-link">Digital Marketing</a></li>
+                                    </ul>
+                                </div>
+
+                                <!-- Column 4: Technology & Operations -->
+                                <div class="service-column">
+                                    <h3 class="text-base font-bold text-blue-600 mb-3 pb-2 border-b border-gray-200">Technology & Ops</h3>
+                                    <ul class="space-y-2">
+                                        <li><a href="#contact" class="service-link dropdown-link">Technology & AI</a></li>
+                                        <li><a href="#contact" class="service-link dropdown-link">Web Development</a></li>
+                                        <li><a href="#contact" class="service-link dropdown-link">Mobile App Dev</a></li>
+                                        <li><a href="#contact" class="service-link dropdown-link">AI Development</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Footer with CTA -->
+                            <div class="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-b-xl p-4 flex flex-col sm:flex-row justify-between items-center">
+                                <p class="text-gray-700 font-medium mb-2 sm:mb-0">Need a custom solution? We're here to help!</p>
+                                <a href="#contact" class="px-4 py-2 bg-gradient-to-r from-indigo-500 to-purple-500 text-white font-medium rounded-full hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 dropdown-link">Get a Quote</a>
+                            </div>
+                        </div>
                     </div>
-                    
-                    <!-- Mobile Menu Button -->
-                    <div class="lg:hidden">
-                        <button id="menu-toggle" class="bg-gray-200 hover:bg-gray-300 transition-colors p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
-                            <i class="fas fa-bars text-gray-600"></i>
+
+                    <a href="#projects" class="nav-link font-medium text-gray-600 hover:text-indigo-600 transition-colors">Portfolio</a>
+                    <a href="#contact" class="px-4 py-2 bg-indigo-600 text-white font-medium rounded-full shadow-md hover:bg-indigo-700 transition-colors">Contact</a>
+                </div>
+
+                <!-- Mobile Menu Hamburger Button -->
+                <button id="mobile-menu-toggle" class="lg:hidden text-gray-600 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </nav>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="lg:hidden py-4 border-t border-gray-300 mt-2 bg-gray-100 bg-opacity-95 mobile-menu-slide hidden">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col space-y-4">
+                    <a href="#" class="nav-link active font-semibold text-indigo-600 transition-colors">Home</a>
+                    <a href="team.html" class="nav-link font-medium text-gray-600 hover:text-indigo-600 transition-colors">About us</a>
+
+                    <!-- Mobile Services Dropdown -->
+                    <div class="relative">
+                        <button id="mobile-services-btn" class="w-full flex justify-between items-center text-left nav-link font-medium text-gray-600 hover:text-indigo-600 transition-colors">
+                            Our Services
+                            <svg class="w-4 h-4 transform transition-transform duration-200" id="mobile-services-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
                         </button>
-                    </div>
-                </nav>
-            </div>
-            
-            <!-- Mobile Navigation -->
-            <div id="mobile-menu" class="lg:hidden py-4 border-t border-gray-300 mt-2 bg-gray-100 bg-opacity-95 mobile-menu-slide hidden">
-                <div class="container mx-auto px-8 md:px-12 lg:px-16">
-                    <div class="flex flex-col space-y-4">
-                        <a href="#" class="nav-link active font-semibold text-indigo-600 transition-colors">Home</a>
-                        <a href="team.html" class="nav-link font-medium text-gray-600 hover:text-indigo-600 transition-colors">About us</a>
 
-                        <a href="#service" class="nav-link font-medium text-gray-600 hover:text-indigo-600 transition-colors">Our Services</a>
-                        <a href="#projects" class="nav-link font-medium text-gray-600 hover:text-indigo-600 transition-colors">Our Portfolio</a>
-                        <a href="#contact" class="px-6 py-2 bg-indigo-600 text-white font-medium rounded-full shadow-md hover:bg-indigo-700 transition-colors text-center">Contact Us</a>
+                        <!-- Mobile Services List -->
+                        <div id="mobile-services-list" class="hidden mt-2 bg-gray-50 rounded-lg p-4 space-y-4">
+                            <!-- Presentation & Design -->
+                            <div class="mobile-service-category">
+                                <button class="mobile-category-btn w-full flex justify-between items-center font-medium text-indigo-600">
+                                    Presentation & Design
+                                    <svg class="w-4 h-4 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                    </svg>
+                                </button>
+                                <div class="mobile-category-content hidden mt-2 pl-4 space-y-2 border-l-2 border-indigo-200">
+                                    <a href="#contact" class="block text-gray-600 hover:text-indigo-600 mobile-dropdown-link">Flipping & Formatting</a>
+                                    <a href="#contact" class="block text-gray-600 hover:text-indigo-600 mobile-dropdown-link">Slide Design</a>
+                                    <a href="#contact" class="block text-gray-600 hover:text-indigo-600 mobile-dropdown-link">Report Design</a>
+                                </div>
+                            </div>
+
+                            <!-- Animation & Communication -->
+                            <div class="mobile-service-category">
+                                <button class="mobile-category-btn w-full flex justify-between items-center font-medium text-pink-600">
+                                    Animation & Communication
+                                    <svg class="w-4 h-4 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                    </svg>
+                                </button>
+                                <div class="mobile-category-content hidden mt-2 pl-4 space-y-2 border-l-2 border-pink-200">
+                                    <a href="#contact" class="block text-gray-600 hover:text-pink-600 mobile-dropdown-link">Animation Videos</a>
+                                    <a href="#contact" class="block text-gray-600 hover:text-pink-600 mobile-dropdown-link">3D Animation</a>
+                                    <a href="#contact" class="block text-gray-600 hover:text-pink-600 mobile-dropdown-link">Film Production</a>
+                                </div>
+                            </div>
+
+                            <!-- Content & Marketing -->
+                            <div class="mobile-service-category">
+                                <button class="mobile-category-btn w-full flex justify-between items-center font-medium text-purple-600">
+                                    Content & Marketing
+                                    <svg class="w-4 h-4 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                    </svg>
+                                </button>
+                                <div class="mobile-category-content hidden mt-2 pl-4 space-y-2 border-l-2 border-purple-200">
+                                    <a href="#contact" class="block text-gray-600 hover:text-purple-600 mobile-dropdown-link">Content Creation</a>
+                                    <a href="#contact" class="block text-gray-600 hover:text-purple-600 mobile-dropdown-link">Blog Writing</a>
+                                    <a href="#contact" class="block text-gray-600 hover:text-purple-600 mobile-dropdown-link">Digital Marketing</a>
+                                </div>
+                            </div>
+
+                            <!-- Technology & Operations -->
+                            <div class="mobile-service-category">
+                                <button class="mobile-category-btn w-full flex justify-between items-center font-medium text-blue-600">
+                                    Technology & Operations
+                                    <svg class="w-4 h-4 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                    </svg>
+                                </button>
+                                <div class="mobile-category-content hidden mt-2 pl-4 space-y-2 border-l-2 border-blue-200">
+                                    <a href="#contact" class="block text-gray-600 hover:text-blue-600 mobile-dropdown-link">Technology & AI</a>
+                                    <a href="#contact" class="block text-gray-600 hover:text-blue-600 mobile-dropdown-link">Web App Development</a>
+                                    <a href="#contact" class="block text-gray-600 hover:text-blue-600 mobile-dropdown-link">Mobile App Development</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+
+                    <a href="#projects" class="nav-link font-medium text-gray-600 hover:text-indigo-600 transition-colors">Our Portfolio</a>
+                    <a href="#contact" class="px-6 py-2 bg-indigo-600 text-white font-medium rounded-full shadow-md hover:bg-indigo-700 transition-colors text-center">Contact Us</a>
                 </div>
             </div>
         </div>
-    </header>
+    </div>
+</header>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Mobile Menu Toggle
+    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    if (mobileMenuToggle && mobileMenu) {
+        mobileMenuToggle.addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
+            if (mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.remove('show');
+            } else {
+                mobileMenu.classList.add('show');
+            }
+        });
+    }
+
+    // Mobile Services Dropdown Toggle
+    const mobileServicesBtn = document.getElementById('mobile-services-btn');
+    const mobileServicesList = document.getElementById('mobile-services-list');
+    const mobileServicesIcon = document.getElementById('mobile-services-icon');
+
+    if (mobileServicesBtn && mobileServicesList) {
+        mobileServicesBtn.addEventListener('click', function() {
+            mobileServicesList.classList.toggle('hidden');
+            if (mobileServicesIcon) {
+                mobileServicesIcon.classList.toggle('rotate-180');
+            }
+        });
+    }
+
+    // Mobile Category Dropdowns
+    const mobileCategoryBtns = document.querySelectorAll('.mobile-category-btn');
+
+    mobileCategoryBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const content = this.nextElementSibling;
+            const icon = this.querySelector('svg');
+
+            // Toggle current dropdown
+            content.classList.toggle('hidden');
+            if (icon) {
+                icon.classList.toggle('rotate-180');
+            }
+
+            // Close other dropdowns
+            mobileCategoryBtns.forEach(otherBtn => {
+                if (otherBtn !== btn) {
+                    const otherContent = otherBtn.nextElementSibling;
+                    const otherIcon = otherBtn.querySelector('svg');
+
+                    otherContent.classList.add('hidden');
+                    if (otherIcon) {
+                        otherIcon.classList.remove('rotate-180');
+                    }
+                }
+            });
+        });
+    });
+
+    // Close dropdown when clicking on a link inside it
+    const dropdownLinks = document.querySelectorAll('.dropdown-link');
+    dropdownLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            // Find the closest dropdown container
+            const dropdownContainer = document.querySelector('.mega-dropdown');
+            
+            // Add a small delay to let the click finish before closing the dropdown
+            setTimeout(() => {
+                // Remove the hover effect from the parent group to close the dropdown
+                document.querySelector('.group').classList.remove('hover-active');
+            }, 100);
+        });
+    });
+
+    // Close mobile dropdown when clicking on links
+    const mobileDropdownLinks = document.querySelectorAll('.mobile-dropdown-link');
+    mobileDropdownLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            // Close mobile menu
+            if (mobileMenu) {
+                mobileMenu.classList.add('hidden');
+                mobileMenu.classList.remove('show');
+            }
+            
+            // Close service list
+            if (mobileServicesList) {
+                mobileServicesList.classList.add('hidden');
+                if (mobileServicesIcon) {
+                    mobileServicesIcon.classList.remove('rotate-180');
+                }
+            }
+            
+            // Close category content
+            const allMobileContent = document.querySelectorAll('.mobile-category-content');
+            allMobileContent.forEach(content => {
+                content.classList.add('hidden');
+            });
+            
+            // Reset all category icons
+            const allMobileIcons = document.querySelectorAll('.mobile-category-btn svg');
+            allMobileIcons.forEach(icon => {
+                icon.classList.remove('rotate-180');
+            });
+        });
+    });
+
+    // Header scroll effect
+    window.addEventListener('scroll', () => {
+        const header = document.querySelector('header');
+        if (window.scrollY > 50) {
+            header.classList.add('bg-white', 'shadow-md');
+            header.classList.remove('bg-opacity-90');
+        } else {
+            header.classList.remove('bg-white', 'shadow-md');
+            header.classList.add('bg-opacity-90');
+        }
+    });
+});
+</script>
+
+<style>
+/* Mobile menu slide animation */
+.mobile-menu-slide {
+    transform: translateY(-20px);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    display: none;
+}
+
+.mobile-menu-slide.show {
+    transform: translateY(0);
+    opacity: 1;
+    display: block;
+}
+
+/* Mobile category content styles */
+.mobile-category-content.hidden {
+    display: none;
+}
+
+/* Desktop dropdown menu styles */
+.group:hover .group-hover\:opacity-100 {
+    opacity: 1;
+}
+
+.group:hover .group-hover\:visible {
+    visibility: visible;
+}
+
+.group:hover .group-hover\:translate-y-0 {
+    transform: translateY(0);
+}
+
+/* Service link hover animation */
+.service-link {
+    position: relative;
+    display: inline-block;
+    color: #4B5563;
+    transition: all 0.3s ease;
+    padding-left: 0;
+}
+
+.service-link:hover {
+    color: #4F46E5;
+    transform: translateX(4px);
+    font-weight: 500;
+}
+
+/* Better nav-link animation */
+.nav-link {
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-link::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    bottom: -5px;
+    left: 0;
+    background: linear-gradient(90deg, #6366F1, #EC4899);
+    transform: translateX(-100%);
+    transition: transform 0.4s cubic-bezier(0.7, 0, 0.3, 1);
+}
+
+.nav-link:hover::before, 
+.nav-link.active::before {
+    transform: translateX(0);
+}
+
+/* Improved mobile menu appearance */
+@media (max-width: 1023px) {
+    #mobile-menu {
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        border-bottom: 1px solid #e5e7eb;
+    }
+    
+    .mobile-category-btn svg {
+        transition: transform 0.3s ease;
+    }
+    
+    .mobile-category-btn.open svg {
+        transform: rotate(180deg);
+    }
+}
+
+/* Mega dropdown positioning */
+.mega-dropdown {
+    width: auto;
+    min-width: 650px;
+    max-width: 800px;
+}
+
+/* For screens where the dropdown might overflow */
+@media (max-width: 1200px) {
+    .mega-dropdown {
+        right: -100px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .mega-dropdown {
+        right: -200px;
+    }
+}
+
+/* Keep dropdown content structured */
+.service-column {
+    min-width: 150px;
+}
+
+/* Group hover active state */
+.group.hover-active .group-hover\:opacity-100 {
+    opacity: 1;
+}
+
+.group.hover-active .group-hover\:visible {
+    visibility: visible;
+}
+
+.group.hover-active .group-hover\:translate-y-0 {
+    transform: translateY(0);
+}
+
+/* Simulate hover effect for touch devices */
+@media (hover: none) {
+    .group:active .group-hover\:opacity-100 {
+        opacity: 1;
+    }
+    
+    .group:active .group-hover\:visible {
+        visibility: visible;
+    }
+    
+    .group:active .group-hover\:translate-y-0 {
+        transform: translateY(0);
+    }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Mobile Menu Toggle
+    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    if (mobileMenuToggle && mobileMenu) {
+        mobileMenuToggle.addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
+            if (mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.remove('show');
+            } else {
+                mobileMenu.classList.add('show');
+            }
+        });
+    }
+
+    // Mobile Services Dropdown Toggle
+    const mobileServicesBtn = document.getElementById('mobile-services-btn');
+    const mobileServicesList = document.getElementById('mobile-services-list');
+    const mobileServicesIcon = document.getElementById('mobile-services-icon');
+
+    if (mobileServicesBtn && mobileServicesList) {
+        mobileServicesBtn.addEventListener('click', function() {
+            mobileServicesList.classList.toggle('hidden');
+            if (mobileServicesIcon) {
+                mobileServicesIcon.classList.toggle('rotate-180');
+            }
+        });
+    }
+
+    // Mobile Category Dropdowns
+    const mobileCategoryBtns = document.querySelectorAll('.mobile-category-btn');
+
+    mobileCategoryBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const content = this.nextElementSibling;
+            const icon = this.querySelector('svg');
+
+            // Toggle current dropdown
+            content.classList.toggle('hidden');
+            if (icon) {
+                icon.classList.toggle('rotate-180');
+            }
+
+            // Close other dropdowns
+            mobileCategoryBtns.forEach(otherBtn => {
+                if (otherBtn !== btn) {
+                    const otherContent = otherBtn.nextElementSibling;
+                    const otherIcon = otherBtn.querySelector('svg');
+
+                    otherContent.classList.add('hidden');
+                    if (otherIcon) {
+                        otherIcon.classList.remove('rotate-180');
+                    }
+                }
+            });
+        });
+    });
+
+    // Header scroll effect
+    window.addEventListener('scroll', () => {
+        const header = document.querySelector('header');
+        if (window.scrollY > 50) {
+            header.classList.add('bg-white', 'shadow-md');
+            header.classList.remove('bg-opacity-90');
+        } else {
+            header.classList.remove('bg-white', 'shadow-md');
+            header.classList.add('bg-opacity-90');
+        }
+    });
+});
+</script>
+
+<style>
+/* Mobile menu slide animation */
+.mobile-menu-slide {
+    transform: translateY(-20px);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    display: none;
+}
+
+.mobile-menu-slide.show {
+    transform: translateY(0);
+    opacity: 1;
+    display: block;
+}
+
+/* Mobile category content styles */
+.mobile-category-content.hidden {
+    display: none;
+}
+
+/* Desktop dropdown menu styles */
+.group:hover .group-hover\:opacity-100 {
+    opacity: 1;
+}
+
+.group:hover .group-hover\:visible {
+    visibility: visible;
+}
+
+.group:hover .group-hover\:translate-y-0 {
+    transform: translateY(0);
+}
+
+/* Service link hover animation */
+.service-link {
+    position: relative;
+    display: inline-block;
+    color: #4B5563;
+    transition: all 0.3s ease;
+    padding-left: 0;
+}
+
+.service-link:hover {
+    color: #4F46E5;
+    transform: translateX(4px);
+    font-weight: 500;
+}
+
+/* Better nav-link animation */
+.nav-link {
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-link::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    bottom: -5px;
+    left: 0;
+    background: linear-gradient(90deg, #6366F1, #EC4899);
+    transform: translateX(-100%);
+    transition: transform 0.4s cubic-bezier(0.7, 0, 0.3, 1);
+}
+
+.nav-link:hover::before, 
+.nav-link.active::before {
+    transform: translateX(0);
+}
+
+/* Improved mobile menu appearance */
+@media (max-width: 1023px) {
+    #mobile-menu {
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        border-bottom: 1px solid #e5e7eb;
+    }
+    
+    .mobile-category-btn svg {
+        transition: transform 0.3s ease;
+    }
+    
+    .mobile-category-btn.open svg {
+        transform: rotate(180deg);
+    }
+}
+
+/* Ensure dropdown doesn't push outside viewport */
+@media (min-width: 1024px) and (max-width: 1279px) {
+    .group:hover .group-hover\:visible {
+        max-width: calc(100vw - 2rem);
+        right: 0;
+    }
+}
+</style>
+
+
     
     <style>
         /* Updated nav-glow for light theme */
@@ -354,6 +1017,80 @@
         .nav-link.active::before {
             transform: translateX(0);
         }
+        /* Enhanced Custom Cursor */
+.cursor-dot,
+.cursor-ring,
+.cursor-glow {
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    z-index: 9999;
+    transition: opacity 0.3s ease;
+    mix-blend-mode: difference;
+}
+
+.cursor-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #ffffff;
+    transform: translate(-50%, -50%);
+}
+
+.cursor-ring {
+    width: 40px;
+    height: 40px;
+    border: 2px solid rgba(236, 72, 153, 0.8);
+    background-color: transparent;
+    transform: translate(-50%, -50%);
+    transition: width 0.2s ease, height 0.2s ease, background-color 0.2s ease;
+}
+
+.cursor-glow {
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(circle, rgba(236, 72, 153, 0.15) 0%, rgba(236, 72, 153, 0) 70%);
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.cursor-grow .cursor-ring {
+    width: 60px;
+    height: 60px;
+    border-color: rgba(99, 102, 241, 0.7);
+    background-color: rgba(99, 102, 241, 0.05);
+}
+
+.cursor-grow .cursor-glow {
+    opacity: 1;
+}
+
+/* Particle trail effect */
+.particle-trail {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9990;
+    opacity: 0;
+}
+
+@keyframes particle-fade {
+    0% {
+        transform: scale(0) translate(0, 0);
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1.5) translate(var(--tx), var(--ty));
+        opacity: 0;
+    }
+}
     </style>
  <!-- Main Content - Enhanced Hero Section with Fixed z-index -->
 <main class="pt-24 bg-gradient-to-b from-white to-gray-50 overflow-hidden">
@@ -434,7 +1171,7 @@
                     
                     <!-- Enhanced 3D Rotating Cube with more polished design -->
                     <div class="scene mx-auto w-64 h-64 perspective-1000 animate-fade-in">
-                        <div class="cube animate-slow-spin">
+                        <div class="cube">
                             <div class="cube__face cube__face--front bg-gradient-to-br from-purple-400 to-purple-600 flex items-center justify-center p-4 backdrop-blur-sm">
                                 <svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
@@ -706,6 +1443,164 @@
 </style>
 
 <script>
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Custom cursor elements
+    const cursorDot = document.getElementById('cursor-dot');
+    const cursorRing = document.getElementById('cursor-ring');
+    const cursorGlow = document.getElementById('cursor-glow');
+    
+    // Interactive 3D cube
+    const cube = document.querySelector('.cube');
+    const scene = document.querySelector('.scene');
+    
+    // Track mouse position
+    let mouseX = 0;
+    let mouseY = 0;
+    let targetX = 0;
+    let targetY = 0;
+    
+    // Interactivity settings
+    const sensitivity = 0.03; // Adjust for more/less sensitivity
+    const maxRotation = 20;   // Maximum rotation in degrees
+    const dampening = 0.92;   // Dampen the movement for smoother effect
+    let currentRotationX = 0;
+    let currentRotationY = 0;
+    let velocityX = 0;
+    let velocityY = 0;
+    
+    // Cursor position and cube rotation
+    document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        
+        // Update cursor position immediately
+        cursorDot.style.left = `${mouseX}px`;
+        cursorDot.style.top = `${mouseY}px`;
+        
+        // Add slight delay for smooth following effect
+        setTimeout(() => {
+            cursorRing.style.left = `${mouseX}px`;
+            cursorRing.style.top = `${mouseY}px`;
+            cursorGlow.style.left = `${mouseX}px`;
+            cursorGlow.style.top = `${mouseY}px`;
+        }, 50);
+        
+        // Create particle trail effect
+        createParticle(e.clientX, e.clientY);
+        
+        // Only update cube rotation if scene exists
+        if (scene && cube) {
+            // Get the cube's position on the page
+            const rect = scene.getBoundingClientRect();
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+            
+            // Calculate distance from center as percentage
+            const distanceX = (mouseX - centerX) / (rect.width / 2);
+            const distanceY = (mouseY - centerY) / (rect.height / 2);
+            
+            // Set target rotation based on mouse position
+            // Limit the rotation to maxRotation degrees in each direction
+            targetX = Math.max(Math.min(distanceY * maxRotation, maxRotation), -maxRotation);
+            targetY = Math.max(Math.min(-distanceX * maxRotation, maxRotation), -maxRotation);
+        }
+    });
+    
+    // Interactive elements behavior
+    const interactiveElements = document.querySelectorAll('a, button, .nav-link, .logo-icon, .btn-gradient, .tech-button');
+    
+    interactiveElements.forEach(el => {
+        el.addEventListener('mouseenter', () => {
+            document.body.classList.add('cursor-grow');
+        });
+        
+        el.addEventListener('mouseleave', () => {
+            document.body.classList.remove('cursor-grow');
+        });
+    });
+    
+    // Hide cursor when leaving window
+    document.addEventListener('mouseleave', () => {
+        cursorDot.style.opacity = '0';
+        cursorRing.style.opacity = '0';
+        cursorGlow.style.opacity = '0';
+    });
+    
+    // Show cursor when entering window
+    document.addEventListener('mouseenter', () => {
+        cursorDot.style.opacity = '1';
+        cursorRing.style.opacity = '1';
+        cursorGlow.style.opacity = '1';
+    });
+    
+    // Animation loop for smooth rotation
+    function animateCube() {
+        // Smoothly interpolate towards target rotation with physics-based damping
+        velocityX = velocityX * dampening + (targetX - currentRotationX) * sensitivity;
+        velocityY = velocityY * dampening + (targetY - currentRotationY) * sensitivity;
+        
+        currentRotationX += velocityX;
+        currentRotationY += velocityY;
+        
+        // Apply the rotation transform
+        if (cube) {
+            cube.style.transform = `rotateX(${currentRotationX}deg) rotateY(${currentRotationY}deg)`;
+        }
+        
+        // Continue the animation loop
+        requestAnimationFrame(animateCube);
+    }
+    
+    // Start the animation loop
+    animateCube();
+    
+    // Particle trail effect
+    function createParticle(x, y) {
+        // Only create particles when near the cube
+        if (!scene) return;
+        
+        const rect = scene.getBoundingClientRect();
+        if (x >= rect.left - 100 && x <= rect.right + 100 && 
+            y >= rect.top - 100 && y <= rect.bottom + 100) {
+            
+            const particle = document.createElement('div');
+            particle.className = 'particle-trail';
+            document.body.appendChild(particle);
+            
+            // Random color in purple/pink gradient
+            const hue = Math.random() > 0.5 ? 
+                        290 + Math.random() * 30 : // Purple
+                        330 + Math.random() * 20;  // Pink
+            
+            const size = 3 + Math.random() * 5;
+            
+            // Position particle
+            particle.style.left = `${x}px`;
+            particle.style.top = `${y}px`;
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+            particle.style.backgroundColor = `hsla(${hue}, 80%, 60%, 0.7)`;
+            
+            // Set animation variables
+            const angle = Math.random() * Math.PI * 2;
+            const distance = 20 + Math.random() * 40;
+            const tx = Math.cos(angle) * distance;
+            const ty = Math.sin(angle) * distance;
+            
+            particle.style.setProperty('--tx', `${tx}px`);
+            particle.style.setProperty('--ty', `${ty}px`);
+            
+            // Add animation
+            particle.style.animation = `particle-fade ${0.8 + Math.random() * 0.6}s forwards`;
+            
+            // Remove particle after animation completes
+            setTimeout(() => {
+                particle.remove();
+            }, 1500);
+        }
+    }
+});
 // Counter animation
 document.addEventListener('DOMContentLoaded', () => {
     const counters = document.querySelectorAll('.counter');
@@ -771,15 +1666,15 @@ document.addEventListener('DOMContentLoaded', () => {
                             <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z" />
                         </svg>
                     </div>
-                    <div class="flex items-center justify-center mb-2">
-                        <span class="text-5xl font-bold text-gray-900 counter" data-target="40000">0</span>
-                        <span class="text-3xl font-bold text-purple-600 ml-1">+</span>
+                    <div class="flex items-center justify-center mb-2 relative">
+                        <span class="text-5xl font-bold text-gray-900 counter pr-5" data-target="40000">0</span>
+                        <span class="text-3xl font-bold text-purple-600 absolute right-0 top-2">+</span>
                     </div>
                     <p class="text-gray-600">Global Happy Clients</p>
                     <div class="card-line purple-line"></div>
                 </div>
             </div>
-  
+        
             <!-- Stat 2 -->
             <div class="stat-card group">
                 <div class="card-glow pink-glow"></div>
@@ -790,15 +1685,15 @@ document.addEventListener('DOMContentLoaded', () => {
                             <path d="M2 13.692V16a2 2 0 002 2h12a2 2 0 002-2v-2.308A24.974 24.974 0 0110 15c-2.796 0-5.487-.46-8-1.308z" />
                         </svg>
                     </div>
-                    <div class="flex items-center justify-center mb-2">
-                        <span class="text-5xl font-bold text-gray-900 counter" data-target="50000">0</span>
-                        <span class="text-3xl font-bold text-pink-600 ml-1">+</span>
+                    <div class="flex items-center justify-center mb-2 relative">
+                        <span class="text-5xl font-bold text-gray-900 counter pr-5" data-target="50000">0</span>
+                        <span class="text-3xl font-bold text-pink-600 absolute right-0 top-2">+</span>
                     </div>
-                    <p class="text-gray-600">Project Completed</p>
+                    <p class="text-gray-600">Projects Completed</p>
                     <div class="card-line pink-line"></div>
                 </div>
             </div>
-  
+        
             <!-- Stat 3 -->
             <div class="stat-card group">
                 <div class="card-glow indigo-glow"></div>
@@ -808,15 +1703,15 @@ document.addEventListener('DOMContentLoaded', () => {
                             <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z" />
                         </svg>
                     </div>
-                    <div class="flex items-center justify-center mb-2">
-                        <span class="text-5xl font-bold text-gray-900 counter" data-target="245">0</span>
-                        <span class="text-3xl font-bold text-indigo-600 ml-1">+</span>
+                    <div class="flex items-center justify-center mb-2 relative">
+                        <span class="text-5xl font-bold text-gray-900 counter pr-5" data-target="245">0</span>
+                        <span class="text-3xl font-bold text-indigo-600 absolute right-0 top-2">+</span>
                     </div>
                     <p class="text-gray-600">Team Members</p>
                     <div class="card-line indigo-line"></div>
                 </div>
             </div>
-  
+        
             <!-- Stat 4 -->
             <div class="stat-card group">
                 <div class="card-glow blue-glow"></div>
@@ -826,15 +1721,108 @@ document.addEventListener('DOMContentLoaded', () => {
                             <path d="M11 17a1 1 0 001.447.894l4-2A1 1 0 0017 15V9.236a1 1 0 00-1.447-.894l-4 2a1 1 0 00-.553.894V17zM15.211 6.276a1 1 0 000-1.788l-4.764-2.382a1 1 0 00-.894 0L4.789 4.488a1 1 0 000 1.788l4.764 2.382a1 1 0 00.894 0l4.764-2.382zM4.447 8.342A1 1 0 003 9.236V15a1 1 0 00.553.894l4 2A1 1 0 009 17v-5.764a1 1 0 00-.553-.894l-4-2z" />
                         </svg>
                     </div>
-                    <div class="flex items-center justify-center mb-2">
-                        <span class="text-5xl font-bold text-gray-900 counter" data-target="550">0</span>
-                        <span class="text-3xl font-bold text-blue-600 ml-1">+</span>
+                    <div class="flex items-center justify-center mb-2 relative">
+                        <span class="text-5xl font-bold text-gray-900 counter pr-5" data-target="550">1</span>
+                        <span class="text-3xl font-bold text-blue-600 absolute right-0 top-2">+</span>
                     </div>
                     <p class="text-gray-600">Digital Products</p>
                     <div class="card-line blue-line"></div>
                 </div>
             </div>
         </div>
+        
+        <style>
+        /* Keep the existing styles and add these adjustments */
+        
+        /* Add right padding to the counter to make room for the + symbol */
+        .counter {
+            position: relative;
+            display: inline-block;
+        }
+        
+        /* Position the + symbol properly */
+        .counter + span {
+            position: absolute;
+            right: -10px;
+            top: 10px;
+        }
+        
+        /* Ensure counter text doesn't wrap */
+        .card-content {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background: white;
+            border-radius: 16px;
+            padding: 2rem 1rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 10;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 640px) {
+            .counter {
+                font-size: 2.5rem; /* Smaller text on mobile */
+            }
+            .counter + span {
+                font-size: 1.5rem;
+                top: 8px;
+            }
+        }
+        </style>
+        
+        <script>
+        // Add this script to ensure the counter animation still works
+        document.addEventListener('DOMContentLoaded', () => {
+            const counters = document.querySelectorAll('.counter');
+            const speed = 200;
+            
+            const animateCounter = (counter) => {
+                const target = parseInt(counter.getAttribute('data-target'));
+                const increment = target / speed;
+                
+                let count = 0;
+                const updateCount = () => {
+                    count += increment;
+                    
+                    if (count < target) {
+                        let displayValue = Math.ceil(count).toString();
+                        // Format with commas if needed
+                        if (target >= 1000) {
+                            displayValue = Math.ceil(count).toLocaleString();
+                        }
+                        counter.innerText = displayValue;
+                        setTimeout(updateCount, 1);
+                    } else {
+                        counter.innerText = target >= 1000 ? target.toLocaleString() : target;
+                    }
+                };
+                
+                updateCount();
+            };
+            
+            // Use Intersection Observer to trigger counter animation when visible
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateCounter(entry.target);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {threshold: 0.1});
+            
+            counters.forEach(counter => {
+                observer.observe(counter);
+            });
+        });
+        </script>
+        
   
         <!-- Animated floating decorative elements -->
         <div class="absolute top-10 left-10 w-6 h-6 bg-purple-400 rounded-full opacity-30 animate-float"></div>
@@ -1952,7 +2940,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <!-- View All Projects Button -->
         <div class="flex justify-center mt-16">
             <a href="#" class="px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold rounded-full hover:from-purple-700 hover:to-pink-700 transition-all duration-300 hover:shadow-lg hover:shadow-pink-500/20 transform hover:-translate-y-1 flex items-center">
-                View All Projects
+                Contact Us
                 <svg class="ml-2 w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
                 </svg>
@@ -2163,22 +3151,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="aspect-video relative overflow-hidden rounded-2xl">
                     <!-- Video element - autoplay and loop attributes added -->
                     <video id="agile-process-video" class="w-full h-full object-cover" autoplay loop muted playsinline poster="/api/placeholder/600/350">
-                        <source src="bg.mp4" type="video/mp4">
+                        <source src="sc1.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
 
-                    <!-- Play/Pause button overlay -->
-                    <div class="video-overlay">
-                        <button class="play-button" id="playPauseButton">
-                            <div class="play-button-circle"></div>
-                            <svg class="play-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="24px" height="24px">
-                                <path d="M8 5v14l11-7z"/>
-                            </svg>
-                            <svg class="pause-icon hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="24px" height="24px">
-                                <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
-                            </svg>
-                        </button>
-                    </div>
+                    
                 </div>
             </div>
         </div>
@@ -2347,7 +3324,7 @@ document.addEventListener('DOMContentLoaded', () => {
           
           <!-- Client Info -->
           <div class="flex items-center">
-            <img src="/api/placeholder/50/50" alt="Sarah Johnson" class="w-12 h-12 rounded-full object-cover mr-4">
+            <img src="./8.png" alt="Sarah Johnson" class="w-12 h-12 rounded-full object-cover mr-4">
             <div>
               <h4 class="text-gray-900 font-semibold">Sarah Johnson</h4>
               <p class="text-purple-600 text-sm">Marketing Director, TechCorp</p>
@@ -2371,7 +3348,7 @@ document.addEventListener('DOMContentLoaded', () => {
           
           <!-- Client Info -->
           <div class="flex items-center">
-            <img src="/api/placeholder/50/50" alt="Michael Chen" class="w-12 h-12 rounded-full object-cover mr-4">
+            <img src="./6.png" alt="Michael Chen" class="w-12 h-12 rounded-full object-cover mr-4">
             <div>
               <h4 class="text-gray-900 font-semibold">Michael Chen</h4>
               <p class="text-purple-600 text-sm">CEO, Innovate Inc.</p>
@@ -2395,7 +3372,7 @@ document.addEventListener('DOMContentLoaded', () => {
           
           <!-- Client Info -->
           <div class="flex items-center">
-            <img src="/api/placeholder/50/50" alt="Emily Rodriguez" class="w-12 h-12 rounded-full object-cover mr-4">
+            <img src="./7.png" alt="Emily Rodriguez" class="w-12 h-12 rounded-full object-cover mr-4">
             <div>
               <h4 class="text-gray-900 font-semibold">Emily Rodriguez</h4>
               <p class="text-purple-600 text-sm">Event Manager, GlobalEvents</p>
@@ -2795,7 +3772,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <!-- Company Information -->
         <div>
           <div class="mb-4">
-            <img src="/api/placeholder/150/50" alt="Slide Creators Logo" class="h-10">
+            <img src="./footerLogo.png" alt="Slide Creators Logo" class="h-10">
           </div>
           <p class="mb-6 text-gray-500 text-sm leading-relaxed">
             Welcome to arino sed ut perspiciae omunde omnis iste natus error sitort voluptatem accusantium.
@@ -2915,56 +3892,214 @@ document.addEventListener('DOMContentLoaded', () => {
     <script>
         // Custom cursor
         const cursorDot = document.querySelector('.cursor-dot');
-        const cursorRing = document.querySelector('.cursor-ring');
-        const links = document.querySelectorAll('a, button');
+        // const cursorRing = document.querySelector('.cursor-ring');
+        // const links = document.querySelectorAll('a, button');
         
-        window.addEventListener('mousemove', (e) => {
-            cursorDot.style.left = `${e.clientX}px`;
-            cursorDot.style.top = `${e.clientY}px`;
+        // window.addEventListener('mousemove', (e) => {
+        //     cursorDot.style.left = `${e.clientX}px`;
+        //     cursorDot.style.top = `${e.clientY}px`;
             
-            // Add a slight delay to the ring for a smooth following effect
-            setTimeout(() => {
-                cursorRing.style.left = `${e.clientX}px`;
-                cursorRing.style.top = `${e.clientY}px`;
-            }, 50);
-        });
+        //     // Add a slight delay to the ring for a smooth following effect
+        //     setTimeout(() => {
+        //         cursorRing.style.left = `${e.clientX}px`;
+        //         cursorRing.style.top = `${e.clientY}px`;
+        //     }, 50);
+        // });
         
-        // Add the grow effect when hovering over interactive elements
-        links.forEach(link => {
-            link.addEventListener('mouseenter', () => {
-                document.body.classList.add('cursor-grow');
-            });
-            link.addEventListener('mouseleave', () => {
-                document.body.classList.remove('cursor-grow');
-            });
-        });
+        // // Add the grow effect when hovering over interactive elements
+        // links.forEach(link => {
+        //     link.addEventListener('mouseenter', () => {
+        //         document.body.classList.add('cursor-grow');
+        //     });
+        //     link.addEventListener('mouseleave', () => {
+        //         document.body.classList.remove('cursor-grow');
+        //     });
+        // });
         
-        // Hide cursor when leaving window
-        document.addEventListener('mouseleave', () => {
-            cursorDot.style.display = 'none';
-            cursorRing.style.display = 'none';
-        });
+        // // Hide cursor when leaving window
+        // document.addEventListener('mouseleave', () => {
+        //     cursorDot.style.display = 'none';
+        //     cursorRing.style.display = 'none';
+        // });
         
-        // Show cursor when entering window
-        document.addEventListener('mouseenter', () => {
-            cursorDot.style.display = 'block';
-            cursorRing.style.display = 'block';
-        });
+        // // Show cursor when entering window
+        // document.addEventListener('mouseenter', () => {
+        //     cursorDot.style.display = 'block';
+        //     cursorRing.style.display = 'block';
+        // });
         
-        // Mobile menu toggle
-        const menuToggle = document.getElementById('menu-toggle');
-        const mobileMenu = document.getElementById('mobile-menu');
+        // // Mobile menu toggle
+        // const menuToggle = document.getElementById('menu-toggle');
+        // const mobileMenu = document.getElementById('mobile-menu');
         
-        menuToggle.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-            mobileMenu.classList.toggle('show');
+        // menuToggle.addEventListener('click', () => {
+        //     mobileMenu.classList.toggle('hidden');
+        //     mobileMenu.classList.toggle('show');
             
-            if (!mobileMenu.classList.contains('hidden')) {
-                menuToggle.innerHTML = '<i class="fas fa-times text-gray-300"></i>';
-            } else {
-                menuToggle.innerHTML = '<i class="fas fa-bars text-gray-300"></i>';
+        //     if (!mobileMenu.classList.contains('hidden')) {
+        //         menuToggle.innerHTML = '<i class="fas fa-times text-gray-300"></i>';
+        //     } else {
+        //         menuToggle.innerHTML = '<i class="fas fa-bars text-gray-300"></i>';
+        //     }
+        // });
+        document.addEventListener('DOMContentLoaded', function() {
+    // Custom cursor elements
+    const cursorDot = document.getElementById('cursor-dot');
+    const cursorRing = document.getElementById('cursor-ring');
+    const cursorGlow = document.getElementById('cursor-glow');
+    
+    // Interactive 3D cube
+    const cube = document.querySelector('.cube');
+    const scene = document.querySelector('.scene');
+    
+    // Track mouse position
+    let mouseX = 0;
+    let mouseY = 0;
+    let targetX = 0;
+    let targetY = 0;
+    
+    // Interactivity settings
+    const sensitivity = 0.03; // Adjust for more/less sensitivity
+    const maxRotation = 20;   // Maximum rotation in degrees
+    const dampening = 0.92;   // Dampen the movement for smoother effect
+    let currentRotationX = 0;
+    let currentRotationY = 0;
+    let velocityX = 0;
+    let velocityY = 0;
+    
+    // Cursor position and cube rotation
+    document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        
+        // Update cursor position immediately
+        cursorDot.style.left = `${mouseX}px`;
+        cursorDot.style.top = `${mouseY}px`;
+        
+        // Add slight delay for smooth following effect
+        setTimeout(() => {
+            cursorRing.style.left = `${mouseX}px`;
+            cursorRing.style.top = `${mouseY}px`;
+            if (cursorGlow) {
+                cursorGlow.style.left = `${mouseX}px`;
+                cursorGlow.style.top = `${mouseY}px`;
             }
+        }, 50);
+        
+        // Only update cube rotation if scene exists
+        if (scene && cube) {
+            // Create particle trail effect near the cube
+            const rect = scene.getBoundingClientRect();
+            if (
+                e.clientX >= rect.left - 100 && 
+                e.clientX <= rect.right + 100 && 
+                e.clientY >= rect.top - 100 && 
+                e.clientY <= rect.bottom + 100
+            ) {
+                createParticle(e.clientX, e.clientY);
+            }
+            
+            // Get the cube's position on the page
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+            
+            // Calculate distance from center as percentage
+            const distanceX = (mouseX - centerX) / (rect.width / 2);
+            const distanceY = (mouseY - centerY) / (rect.height / 2);
+            
+            // Set target rotation based on mouse position
+            // Limit the rotation to maxRotation degrees in each direction
+            targetX = Math.max(Math.min(distanceY * maxRotation, maxRotation), -maxRotation);
+            targetY = Math.max(Math.min(-distanceX * maxRotation, maxRotation), -maxRotation);
+        }
+    });
+    
+    // Interactive elements behavior
+    const interactiveElements = document.querySelectorAll('a, button, .nav-link, .logo-icon, .btn-gradient, .tech-button');
+    
+    interactiveElements.forEach(el => {
+        el.addEventListener('mouseenter', () => {
+            document.body.classList.add('cursor-grow');
         });
+        
+        el.addEventListener('mouseleave', () => {
+            document.body.classList.remove('cursor-grow');
+        });
+    });
+    
+    // Hide cursor when leaving window
+    document.addEventListener('mouseleave', () => {
+        cursorDot.style.opacity = '0';
+        cursorRing.style.opacity = '0';
+        if (cursorGlow) cursorGlow.style.opacity = '0';
+    });
+    
+    // Show cursor when entering window
+    document.addEventListener('mouseenter', () => {
+        cursorDot.style.opacity = '1';
+        cursorRing.style.opacity = '1';
+        if (cursorGlow) cursorGlow.style.opacity = '1';
+    });
+    
+    // Animation loop for smooth rotation
+    function animateCube() {
+        if (cube) {
+            // Smoothly interpolate towards target rotation with physics-based damping
+            velocityX = velocityX * dampening + (targetX - currentRotationX) * sensitivity;
+            velocityY = velocityY * dampening + (targetY - currentRotationY) * sensitivity;
+            
+            currentRotationX += velocityX;
+            currentRotationY += velocityY;
+            
+            // Apply the rotation transform
+            cube.style.transform = `translateZ(-100px) rotateX(${currentRotationX}deg) rotateY(${currentRotationY}deg)`;
+        }
+        
+        // Continue the animation loop
+        requestAnimationFrame(animateCube);
+    }
+    
+    // Start the animation loop
+    animateCube();
+    
+    // Particle trail effect
+    function createParticle(x, y) {
+        const particle = document.createElement('div');
+        particle.className = 'particle-trail';
+        document.body.appendChild(particle);
+        
+        // Random color in purple/pink gradient
+        const hue = Math.random() > 0.5 ? 
+                    290 + Math.random() * 30 : // Purple
+                    330 + Math.random() * 20;  // Pink
+        
+        const size = 3 + Math.random() * 5;
+        
+        // Position particle
+        particle.style.left = `${x}px`;
+        particle.style.top = `${y}px`;
+        particle.style.width = `${size}px`;
+        particle.style.height = `${size}px`;
+        particle.style.backgroundColor = `hsla(${hue}, 80%, 60%, 0.7)`;
+        
+        // Set animation variables
+        const angle = Math.random() * Math.PI * 2;
+        const distance = 20 + Math.random() * 40;
+        const tx = Math.cos(angle) * distance;
+        const ty = Math.sin(angle) * distance;
+        
+        particle.style.setProperty('--tx', `${tx}px`);
+        particle.style.setProperty('--ty', `${ty}px`);
+        
+        // Add animation
+        particle.style.animation = `particle-fade ${0.8 + Math.random() * 0.6}s forwards`;
+        
+        // Remove particle after animation completes
+        setTimeout(() => {
+            particle.remove();
+        }, 1500);
+    }
+});
         
         // Header scroll effect
         window.addEventListener('scroll', () => {
