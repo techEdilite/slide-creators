@@ -468,426 +468,209 @@
         </div>
 
         <!-- Mobile Navigation Menu -->
-        <div id="mobile-menu" class="lg:hidden py-4 border-t border-gray-300 mt-2 bg-gray-100 bg-opacity-95 mobile-menu-slide hidden">
-            <div class="container mx-auto px-4">
-                <div class="flex flex-col space-y-4">
-                    <a href="#" class="nav-link active font-semibold text-indigo-600 transition-colors">Home</a>
-                    <a href="team.html" class="nav-link font-medium text-gray-600 hover:text-indigo-600 transition-colors">About us</a>
+<div id="mobile-menu" class="lg:hidden py-4 border-t border-gray-300 mt-2 bg-gray-100 bg-opacity-95 mobile-menu-slide hidden">
+    <div class="container mx-auto px-4">
+        <div class="flex flex-col space-y-4">
+            <a href="#" class="nav-link active font-semibold text-indigo-600 transition-colors">Home</a>
+            <a href="team.html" class="nav-link font-medium text-gray-600 hover:text-indigo-600 transition-colors">About us</a>
 
-                    <!-- Mobile Services Dropdown -->
-                    <div class="relative">
-                        <button id="mobile-services-btn" class="w-full flex justify-between items-center text-left nav-link font-medium text-gray-600 hover:text-indigo-600 transition-colors">
-                            Our Services
-                            <svg class="w-4 h-4 transform transition-transform duration-200" id="mobile-services-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <!-- Mobile Services Dropdown -->
+            <div class="relative">
+                <button id="mobile-services-btn" class="w-full flex justify-between items-center text-left nav-link font-medium text-gray-600 hover:text-indigo-600 transition-colors">
+                    Our Services
+                    <svg class="w-4 h-4 transform transition-transform duration-200" id="mobile-services-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+
+                <!-- Mobile Services List -->
+                <div id="mobile-services-list" class="hidden mt-2 bg-gray-50 rounded-lg p-4 space-y-4">
+                    <!-- Presentation & Design -->
+                    <div class="mobile-service-category">
+                        <button class="mobile-category-btn w-full flex justify-between items-center font-medium text-indigo-600">
+                            Presentation & Design
+                            <svg class="w-4 h-4 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                             </svg>
                         </button>
-
-                        <!-- Mobile Services List -->
-                        <div id="mobile-services-list" class="hidden mt-2 bg-gray-50 rounded-lg p-4 space-y-4">
-                            <!-- Presentation & Design -->
-                            <div class="mobile-service-category">
-                                <button class="mobile-category-btn w-full flex justify-between items-center font-medium text-indigo-600">
-                                    Presentation & Design
-                                    <svg class="w-4 h-4 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                                    </svg>
-                                </button>
-                                <div class="mobile-category-content hidden mt-2 pl-4 space-y-2 border-l-2 border-indigo-200">
-                                    <a href="#contact" class="block text-gray-600 hover:text-indigo-600 mobile-dropdown-link">Flipping & Formatting</a>
-                                    <a href="#contact" class="block text-gray-600 hover:text-indigo-600 mobile-dropdown-link">Slide Design</a>
-                                    <a href="#contact" class="block text-gray-600 hover:text-indigo-600 mobile-dropdown-link">Report Design</a>
-                                </div>
-                            </div>
-
-                            <!-- Animation & Communication -->
-                            <div class="mobile-service-category">
-                                <button class="mobile-category-btn w-full flex justify-between items-center font-medium text-pink-600">
-                                    Animation & Communication
-                                    <svg class="w-4 h-4 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                                    </svg>
-                                </button>
-                                <div class="mobile-category-content hidden mt-2 pl-4 space-y-2 border-l-2 border-pink-200">
-                                    <a href="#contact" class="block text-gray-600 hover:text-pink-600 mobile-dropdown-link">Animation Videos</a>
-                                    <a href="#contact" class="block text-gray-600 hover:text-pink-600 mobile-dropdown-link">3D Animation</a>
-                                    <a href="#contact" class="block text-gray-600 hover:text-pink-600 mobile-dropdown-link">Film Production</a>
-                                </div>
-                            </div>
-
-                            <!-- Content & Marketing -->
-                            <div class="mobile-service-category">
-                                <button class="mobile-category-btn w-full flex justify-between items-center font-medium text-purple-600">
-                                    Content & Marketing
-                                    <svg class="w-4 h-4 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                                    </svg>
-                                </button>
-                                <div class="mobile-category-content hidden mt-2 pl-4 space-y-2 border-l-2 border-purple-200">
-                                    <a href="#contact" class="block text-gray-600 hover:text-purple-600 mobile-dropdown-link">Content Creation</a>
-                                    <a href="#contact" class="block text-gray-600 hover:text-purple-600 mobile-dropdown-link">Blog Writing</a>
-                                    <a href="#contact" class="block text-gray-600 hover:text-purple-600 mobile-dropdown-link">Digital Marketing</a>
-                                </div>
-                            </div>
-
-                            <!-- Technology & Operations -->
-                            <div class="mobile-service-category">
-                                <button class="mobile-category-btn w-full flex justify-between items-center font-medium text-blue-600">
-                                    Technology & Operations
-                                    <svg class="w-4 h-4 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                                    </svg>
-                                </button>
-                                <div class="mobile-category-content hidden mt-2 pl-4 space-y-2 border-l-2 border-blue-200">
-                                    <a href="#contact" class="block text-gray-600 hover:text-blue-600 mobile-dropdown-link">Technology & AI</a>
-                                    <a href="#contact" class="block text-gray-600 hover:text-blue-600 mobile-dropdown-link">Web App Development</a>
-                                    <a href="#contact" class="block text-gray-600 hover:text-blue-600 mobile-dropdown-link">Mobile App Development</a>
-                                </div>
-                            </div>
+                        <div class="mobile-category-content hidden mt-2 pl-4 space-y-2 border-l-2 border-indigo-200">
+                            <a href="#contact" class="block text-gray-600 hover:text-indigo-600 mobile-dropdown-link">Flipping & Formatting</a>
+                            <a href="#contact" class="block text-gray-600 hover:text-indigo-600 mobile-dropdown-link">Slide Design</a>
+                            <a href="#contact" class="block text-gray-600 hover:text-indigo-600 mobile-dropdown-link">Report Design</a>
                         </div>
                     </div>
 
-                    <a href="#projects" class="nav-link font-medium text-gray-600 hover:text-indigo-600 transition-colors">Our Portfolio</a>
-                    <a href="#contact" class="px-6 py-2 bg-indigo-600 text-white font-medium rounded-full shadow-md hover:bg-indigo-700 transition-colors text-center">Contact Us</a>
+                    <!-- Animation & Communication -->
+                    <div class="mobile-service-category">
+                        <button class="mobile-category-btn w-full flex justify-between items-center font-medium text-pink-600">
+                            Animation & Communication
+                            <svg class="w-4 h-4 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="mobile-category-content hidden mt-2 pl-4 space-y-2 border-l-2 border-pink-200">
+                            <a href="#contact" class="block text-gray-600 hover:text-pink-600 mobile-dropdown-link">Animation Videos</a>
+                            <a href="#contact" class="block text-gray-600 hover:text-pink-600 mobile-dropdown-link">3D Animation</a>
+                            <a href="#contact" class="block text-gray-600 hover:text-pink-600 mobile-dropdown-link">Film Production</a>
+                        </div>
+                    </div>
+
+                    <!-- Content & Marketing -->
+                    <div class="mobile-service-category">
+                        <button class="mobile-category-btn w-full flex justify-between items-center font-medium text-purple-600">
+                            Content & Marketing
+                            <svg class="w-4 h-4 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="mobile-category-content hidden mt-2 pl-4 space-y-2 border-l-2 border-purple-200">
+                            <a href="#contact" class="block text-gray-600 hover:text-purple-600 mobile-dropdown-link">Content Creation</a>
+                            <a href="#contact" class="block text-gray-600 hover:text-purple-600 mobile-dropdown-link">Blog Writing</a>
+                            <a href="#contact" class="block text-gray-600 hover:text-purple-600 mobile-dropdown-link">Digital Marketing</a>
+                        </div>
+                    </div>
+
+                    <!-- Technology & Operations -->
+                    <div class="mobile-service-category">
+                        <button class="mobile-category-btn w-full flex justify-between items-center font-medium text-blue-600">
+                            Technology & Operations
+                            <svg class="w-4 h-4 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="mobile-category-content hidden mt-2 pl-4 space-y-2 border-l-2 border-blue-200">
+                            <a href="#contact" class="block text-gray-600 hover:text-blue-600 mobile-dropdown-link">Technology & AI</a>
+                            <a href="#contact" class="block text-gray-600 hover:text-blue-600 mobile-dropdown-link">Web App Development</a>
+                            <a href="#contact" class="block text-gray-600 hover:text-blue-600 mobile-dropdown-link">Mobile App Development</a>
+                        </div>
+                    </div>
                 </div>
             </div>
+
+            <a href="#projects" class="nav-link font-medium text-gray-600 hover:text-indigo-600 transition-colors">Our Portfolio</a>
+            <a href="#contact" class="px-6 py-2 bg-indigo-600 text-white font-medium rounded-full shadow-md hover:bg-indigo-700 transition-colors text-center">Contact Us</a>
         </div>
+    </div>
+</div>
     </div>
 </header>
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    // Mobile Menu Toggle
-    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
-    const mobileMenu = document.getElementById('mobile-menu');
 
-    if (mobileMenuToggle && mobileMenu) {
-        mobileMenuToggle.addEventListener('click', function() {
-            mobileMenu.classList.toggle('hidden');
-            if (mobileMenu.classList.contains('hidden')) {
-                mobileMenu.classList.remove('show');
-            } else {
-                mobileMenu.classList.add('show');
-            }
-        });
-    }
-
-    // Mobile Services Dropdown Toggle
-    const mobileServicesBtn = document.getElementById('mobile-services-btn');
-    const mobileServicesList = document.getElementById('mobile-services-list');
-    const mobileServicesIcon = document.getElementById('mobile-services-icon');
-
-    if (mobileServicesBtn && mobileServicesList) {
-        mobileServicesBtn.addEventListener('click', function() {
-            mobileServicesList.classList.toggle('hidden');
-            if (mobileServicesIcon) {
-                mobileServicesIcon.classList.toggle('rotate-180');
-            }
-        });
-    }
-
-    // Mobile Category Dropdowns
-    const mobileCategoryBtns = document.querySelectorAll('.mobile-category-btn');
-
-    mobileCategoryBtns.forEach(btn => {
-        btn.addEventListener('click', function() {
-            const content = this.nextElementSibling;
-            const icon = this.querySelector('svg');
-
-            // Toggle current dropdown
-            content.classList.toggle('hidden');
-            if (icon) {
-                icon.classList.toggle('rotate-180');
-            }
-
-            // Close other dropdowns
-            mobileCategoryBtns.forEach(otherBtn => {
-                if (otherBtn !== btn) {
-                    const otherContent = otherBtn.nextElementSibling;
-                    const otherIcon = otherBtn.querySelector('svg');
-
-                    otherContent.classList.add('hidden');
-                    if (otherIcon) {
-                        otherIcon.classList.remove('rotate-180');
-                    }
-                }
-            });
-        });
-    });
-
-    // Close dropdown when clicking on a link inside it
-    const dropdownLinks = document.querySelectorAll('.dropdown-link');
-    dropdownLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            // Find the closest dropdown container
-            const dropdownContainer = document.querySelector('.mega-dropdown');
-            
-            // Add a small delay to let the click finish before closing the dropdown
-            setTimeout(() => {
-                // Remove the hover effect from the parent group to close the dropdown
-                document.querySelector('.group').classList.remove('hover-active');
-            }, 100);
-        });
-    });
-
-    // Close mobile dropdown when clicking on links
-    const mobileDropdownLinks = document.querySelectorAll('.mobile-dropdown-link');
-    mobileDropdownLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            // Close mobile menu
-            if (mobileMenu) {
-                mobileMenu.classList.add('hidden');
-                mobileMenu.classList.remove('show');
-            }
-            
-            // Close service list
-            if (mobileServicesList) {
-                mobileServicesList.classList.add('hidden');
-                if (mobileServicesIcon) {
-                    mobileServicesIcon.classList.remove('rotate-180');
-                }
-            }
-            
-            // Close category content
-            const allMobileContent = document.querySelectorAll('.mobile-category-content');
-            allMobileContent.forEach(content => {
-                content.classList.add('hidden');
-            });
-            
-            // Reset all category icons
-            const allMobileIcons = document.querySelectorAll('.mobile-category-btn svg');
-            allMobileIcons.forEach(icon => {
-                icon.classList.remove('rotate-180');
-            });
-        });
-    });
-
-    // Header scroll effect
-    window.addEventListener('scroll', () => {
-        const header = document.querySelector('header');
-        if (window.scrollY > 50) {
-            header.classList.add('bg-white', 'shadow-md');
-            header.classList.remove('bg-opacity-90');
-        } else {
-            header.classList.remove('bg-white', 'shadow-md');
-            header.classList.add('bg-opacity-90');
-        }
-    });
-});
-</script>
-
-<style>
-/* Mobile menu slide animation */
-.mobile-menu-slide {
-    transform: translateY(-20px);
-    opacity: 0;
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    display: none;
-}
-
-.mobile-menu-slide.show {
-    transform: translateY(0);
-    opacity: 1;
-    display: block;
-}
-
-/* Mobile category content styles */
-.mobile-category-content.hidden {
-    display: none;
-}
-
-/* Desktop dropdown menu styles */
-.group:hover .group-hover\:opacity-100 {
-    opacity: 1;
-}
-
-.group:hover .group-hover\:visible {
-    visibility: visible;
-}
-
-.group:hover .group-hover\:translate-y-0 {
-    transform: translateY(0);
-}
-
-/* Service link hover animation */
-.service-link {
-    position: relative;
-    display: inline-block;
-    color: #4B5563;
-    transition: all 0.3s ease;
-    padding-left: 0;
-}
-
-.service-link:hover {
-    color: #4F46E5;
-    transform: translateX(4px);
-    font-weight: 500;
-}
-
-/* Better nav-link animation */
-.nav-link {
-    position: relative;
-    overflow: hidden;
-}
-
-.nav-link::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 3px;
-    bottom: -5px;
-    left: 0;
-    background: linear-gradient(90deg, #6366F1, #EC4899);
-    transform: translateX(-100%);
-    transition: transform 0.4s cubic-bezier(0.7, 0, 0.3, 1);
-}
-
-.nav-link:hover::before, 
-.nav-link.active::before {
-    transform: translateX(0);
-}
-
-/* Improved mobile menu appearance */
-@media (max-width: 1023px) {
-    #mobile-menu {
-        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
-        border-bottom: 1px solid #e5e7eb;
-    }
-    
-    .mobile-category-btn svg {
-        transition: transform 0.3s ease;
-    }
-    
-    .mobile-category-btn.open svg {
-        transform: rotate(180deg);
-    }
-}
-
-/* Mega dropdown positioning */
-.mega-dropdown {
-    width: auto;
-    min-width: 650px;
-    max-width: 800px;
-}
-
-/* For screens where the dropdown might overflow */
-@media (max-width: 1200px) {
-    .mega-dropdown {
-        right: -100px;
-    }
-}
-
-@media (max-width: 1000px) {
-    .mega-dropdown {
-        right: -200px;
-    }
-}
-
-/* Keep dropdown content structured */
-.service-column {
-    min-width: 150px;
-}
-
-/* Group hover active state */
-.group.hover-active .group-hover\:opacity-100 {
-    opacity: 1;
-}
-
-.group.hover-active .group-hover\:visible {
-    visibility: visible;
-}
-
-.group.hover-active .group-hover\:translate-y-0 {
-    transform: translateY(0);
-}
-
-/* Simulate hover effect for touch devices */
-@media (hover: none) {
-    .group:active .group-hover\:opacity-100 {
-        opacity: 1;
-    }
-    
-    .group:active .group-hover\:visible {
-        visibility: visible;
-    }
-    
-    .group:active .group-hover\:translate-y-0 {
-        transform: translateY(0);
-    }
-}
-</style>
 
 <script>
+// Mobile Menu Toggle Fix
 document.addEventListener('DOMContentLoaded', function() {
-    // Mobile Menu Toggle
-    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
-    const mobileMenu = document.getElementById('mobile-menu');
-
-    if (mobileMenuToggle && mobileMenu) {
-        mobileMenuToggle.addEventListener('click', function() {
-            mobileMenu.classList.toggle('hidden');
-            if (mobileMenu.classList.contains('hidden')) {
-                mobileMenu.classList.remove('show');
-            } else {
-                mobileMenu.classList.add('show');
-            }
-        });
-    }
-
-    // Mobile Services Dropdown Toggle
-    const mobileServicesBtn = document.getElementById('mobile-services-btn');
-    const mobileServicesList = document.getElementById('mobile-services-list');
-    const mobileServicesIcon = document.getElementById('mobile-services-icon');
-
-    if (mobileServicesBtn && mobileServicesList) {
-        mobileServicesBtn.addEventListener('click', function() {
-            mobileServicesList.classList.toggle('hidden');
-            if (mobileServicesIcon) {
-                mobileServicesIcon.classList.toggle('rotate-180');
-            }
-        });
-    }
-
-    // Mobile Category Dropdowns
-    const mobileCategoryBtns = document.querySelectorAll('.mobile-category-btn');
-
-    mobileCategoryBtns.forEach(btn => {
-        btn.addEventListener('click', function() {
-            const content = this.nextElementSibling;
-            const icon = this.querySelector('svg');
-
-            // Toggle current dropdown
-            content.classList.toggle('hidden');
-            if (icon) {
-                icon.classList.toggle('rotate-180');
-            }
-
-            // Close other dropdowns
-            mobileCategoryBtns.forEach(otherBtn => {
-                if (otherBtn !== btn) {
-                    const otherContent = otherBtn.nextElementSibling;
-                    const otherIcon = otherBtn.querySelector('svg');
-
-                    otherContent.classList.add('hidden');
-                    if (otherIcon) {
-                        otherIcon.classList.remove('rotate-180');
-                    }
-                }
-            });
-        });
+  // Get the mobile menu button and mobile menu elements
+  const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  
+  if (mobileMenuToggle && mobileMenu) {
+    // Add click event listener to the toggle button
+    mobileMenuToggle.addEventListener('click', function() {
+      console.log("Mobile menu toggle clicked");
+      
+      // Simple toggle mechanism
+      if (mobileMenu.classList.contains('hidden')) {
+        mobileMenu.classList.remove('hidden');
+        setTimeout(() => {
+          mobileMenu.classList.add('show');
+        }, 10);
+      } else {
+        mobileMenu.classList.remove('show');
+        // Add a delay before adding the hidden class to allow for the animation
+        setTimeout(() => {
+          mobileMenu.classList.add('hidden');
+        }, 300);
+      }
     });
-
-    // Header scroll effect
-    window.addEventListener('scroll', () => {
-        const header = document.querySelector('header');
-        if (window.scrollY > 50) {
-            header.classList.add('bg-white', 'shadow-md');
-            header.classList.remove('bg-opacity-90');
-        } else {
-            header.classList.remove('bg-white', 'shadow-md');
-            header.classList.add('bg-opacity-90');
+  }
+  
+  // Mobile Services Dropdown Toggle
+  const mobileServicesBtn = document.getElementById('mobile-services-btn');
+  const mobileServicesList = document.getElementById('mobile-services-list');
+  const mobileServicesIcon = document.getElementById('mobile-services-icon');
+  
+  if (mobileServicesBtn && mobileServicesList) {
+    mobileServicesBtn.addEventListener('click', function(e) {
+      console.log("Mobile services button clicked");
+      e.preventDefault();
+      e.stopPropagation();
+      
+      // Toggle the services list
+      mobileServicesList.classList.toggle('hidden');
+      if (mobileServicesIcon) {
+        mobileServicesIcon.classList.toggle('rotate-180');
+      }
+    });
+  }
+  
+  // Mobile Category Dropdowns
+  const mobileCategoryBtns = document.querySelectorAll('.mobile-category-btn');
+  
+  mobileCategoryBtns.forEach(btn => {
+    btn.addEventListener('click', function(e) {
+      console.log("Category button clicked");
+      e.preventDefault();
+      e.stopPropagation();
+      
+      const content = this.nextElementSibling;
+      const icon = this.querySelector('svg');
+      
+      // Toggle current dropdown
+      if (content) {
+        content.classList.toggle('hidden');
+        if (icon) {
+          icon.classList.toggle('rotate-180');
         }
+        this.classList.toggle('open');
+      }
+      
+      // Close other dropdowns
+      mobileCategoryBtns.forEach(otherBtn => {
+        if (otherBtn !== btn) {
+          const otherContent = otherBtn.nextElementSibling;
+          const otherIcon = otherBtn.querySelector('svg');
+          
+          if (otherContent) {
+            otherContent.classList.add('hidden');
+          }
+          if (otherIcon) {
+            otherIcon.classList.remove('rotate-180');
+          }
+          otherBtn.classList.remove('open');
+        }
+      });
     });
+  });
+  
+  // Add CSS for better mobile menu display
+  const styleElement = document.createElement('style');
+  styleElement.textContent = `
+    /* Force proper visibility of mobile menu when shown */
+    #mobile-menu.show {
+      display: block !important;
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+    }
+    
+    /* Better handling of mobile menu visibility */
+    #mobile-menu.hidden {
+      display: none !important;
+    }
+    
+    /* Make mobile services list display properly */
+    #mobile-services-list:not(.hidden) {
+      display: block !important;
+    }
+    
+    /* Make mobile category content display properly */
+    .mobile-category-content:not(.hidden) {
+      display: block !important;
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+  `;
+  document.head.appendChild(styleElement);
 });
 </script>
 
@@ -3744,51 +3527,71 @@ document.addEventListener('DOMContentLoaded', () => {
   </style>
   
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const form = document.getElementById('contact-form');
-      const submitBtn = document.getElementById('submit-btn');
-      const successMessage = document.getElementById('success-message');
+   document.addEventListener('DOMContentLoaded', function() {
+  const form = document.getElementById('contact-form');
+  const submitBtn = document.getElementById('submit-btn');
+  const successMessage = document.getElementById('success-message');
+  
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // Collect form data
+    const formData = {
+      organizationName: document.getElementById('org_name').value,
+      name: document.getElementById('person_name').value,
+      role: document.getElementById('role').value,
+      country: document.getElementById('country').value,
+      email: document.getElementById('email').value,
+      message: document.getElementById('message').value,
+    };
+    
+    // Log form data to console
+    console.log('Form submission:', formData);
+    
+    // Show loading state
+    submitBtn.classList.add('loading');
+    submitBtn.disabled = true;
+    
+    // Make actual API call using fetch
+    fetch('https://slide-creators-service.vercel.app/api/submit-form', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData)
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok: ' + response.status);
+      }
+      return response.json();
+    })
+    .then(data => {
+      console.log('Success:', data);
       
-      form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Collect form data
-        const formData = {
-          orgName: document.getElementById('org_name').value,
-          personName: document.getElementById('person_name').value,
-          role: document.getElementById('role').value,
-          country: document.getElementById('country').value,
-          email: document.getElementById('email').value,
-          message: document.getElementById('message').value,
-        };
-        
-        // Log form data to console
-        console.log('Form submission:', formData);
-        
-        // Show loading state
-        submitBtn.classList.add('loading');
-        submitBtn.disabled = true;
-        
-        // Simulate API call with setTimeout
-        setTimeout(function() {
-          // Hide loading state
-          submitBtn.classList.remove('loading');
-          submitBtn.disabled = false;
-          
-          // Show success message
-          successMessage.classList.remove('hidden');
-          
-          // Reset form
-          form.reset();
-          
-          // Hide success message after 5 seconds
-          setTimeout(function() {
-            successMessage.classList.add('hidden');
-          }, 5000);
-          
-        }, 5000); // 5 second "loading" delay
-      });
+      // Show success message
+      successMessage.classList.remove('hidden');
+      
+      // Reset form
+      form.reset();
+      
+      // Hide success message after 5 seconds
+      setTimeout(function() {
+        successMessage.classList.add('hidden');
+      }, 5000);
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      // Optionally show an error message to the user
+      alert('There was an error submitting the form. Please try again.');
+    })
+    .finally(() => {
+      // Hide loading state regardless of success or failure
+      submitBtn.classList.remove('loading');
+      submitBtn.disabled = false;
     });
+  });
+});
   </script>
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 100" fill="none" preserveAspectRatio="none">
     <path d="M0,0 L1440,0 L1440,100 C1080,60 720,100 360,60 C240,40 120,60 0,30 L0,0 Z" fill="#F3F4F6"/>
@@ -3889,7 +3692,7 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
         
         <!-- Subscribe -->
-        <div>
+        <!-- <div>
           <h3 class="text-lg font-bold text-gray-900 mb-6">Subscribe</h3>
           <p class="text-gray-500 text-sm mb-4">At vero eos et accusamus et iusto odio as part dignissimos ducimus qui blandit.</p>
           <form class="flex flex-col space-y-4">
@@ -3900,7 +3703,7 @@ document.addEventListener('DOMContentLoaded', () => {
               </button>
             </div>
           </form>
-        </div>
+        </div> -->
       </div>
     </div>
     
